@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad - SaberMetrics for MLB</title>
+    <title>Privacy Policy / Política de Privacidad - SaberMetrics for MLB</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -19,6 +19,27 @@
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .lang-nav {
+            position: sticky;
+            top: 0;
+            background: #0d1b2a;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            z-index: 1000;
+        }
+        .lang-nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .lang-nav a:hover {
+            text-decoration: underline;
         }
         h1 {
             color: #0d1b2a;
@@ -49,75 +70,150 @@
     </style>
 </head>
 <body>
-    <div class="container">
+
+    <div class="lang-nav">
+        <a href="#en">🇺🇸 English</a>
+        <a href="#es">🇪🇸 Español</a>
+    </div>
+
+    <!-- ENGLISH VERSION (DEFAULT) -->
+    <div class="container" id="en">
+        <h1>Privacy Policy of SaberMetrics for MLB</h1>
+        <p><strong>Effective Date: July 3, 2026</strong></p>
+        
+        <p>This Privacy Policy describes how SaberMetrics for MLB ("the Application", "we", "our", or "us") collects, uses, and protects information when you use our mobile application. By using the Application, you agree to the practices described in this policy.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>SaberMetrics for MLB is designed to be a sabermetric simulator and, as such, minimizes the collection of personal data. We collect the following information:</p>
+        <ul>
+            <li><strong>Non-Personal Usage Information:</strong> We collect anonymous data about how you interact with the Application, such as the features used, frequency of use, device type, and operating system. This information is used to improve the functionality and user experience of the Application. It is not associated with any personally identifiable information.</li>
+            <li><strong>Simulation Data:</strong> The game simulations you perform and the generated results are stored locally on your device via <code>AsyncStorage</code>. This information is not transmitted to our servers nor shared with third parties. You have full control over this data, including the ability to delete it from your device.</li>
+            <li><strong>Authentication Information (Optional):</strong> If the Application offers authentication features (e.g., login for data synchronization or access to premium features), we will collect the necessary information to manage your account, such as your username, email address, and a unique identifier. This information will be processed in accordance with industry security standards and securely stored using <code>expo-secure-store</code> on native devices and session cookies on the web. We do not share this information with third parties except as necessary to provide the authentication service.</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the collected information for the following purposes:</p>
+        <ul>
+            <li><strong>To Provide and Improve the Application:</strong> To operate, maintain, and improve the functionalities of the Application, including the optimization of simulations and the user interface.</li>
+            <li><strong>Internal Analytics:</strong> To understand how users interact with the Application and to perform statistical and performance analyses. This information is aggregated and anonymous.</li>
+            <li><strong>Personalization:</strong> To personalize your experience within the Application, such as remembering your language and theme preferences.</li>
+            <li><strong>Security:</strong> To protect the security and integrity of the Application and to prevent fraud or malicious activities.</li>
+        </ul>
+
+        <h2>3. Sharing Your Information and Third-Party Advertising</h2>
+        <p>We do not sell, rent, or share your personal information with third parties, except in the following circumstances:</p>
+        <ul>
+            <li><strong>Third-Party Advertising (Google AdMob):</strong> This Application uses the third-party advertising service Google AdMob to display advertisements. Google AdMob may collect and use anonymous data, such as your device's Advertising ID (on Android), to personalize the ads shown to you. You can review Google AdMob's Privacy Policy directly on their official website.</li>
+            <li><strong>Service Providers:</strong> We may share non-personal and aggregated information with service providers who assist us in operating the Application (e.g., performance analytics services). These providers are contractually obligated to protect your information and use it solely for the purposes for which it was disclosed.</li>
+            <li><strong>Legal Compliance:</strong> We may disclose your information if required to do so by law or in response to a valid court order, subpoena, or other legal process.</li>
+            <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or asset sale, your information may be transferred to the acquiring entity, which will be bound by this Privacy Policy.</li>
+        </ul>
+
+        <h2>4. External Data Sources</h2>
+        <p>The Application obtains data from public sources and third-party APIs for its core functionalities:</p>
+        <ul>
+            <li><strong>MLB StatsAPI:</strong> We use the official Major League Baseball API to obtain team statistics, game schedules, pitcher information, and game results. This information is in the public domain and is used solely to feed the simulations and Application screens.</li>
+            <li><strong>Open-Meteo Weather API:</strong> We use this API to obtain relevant weather data for game simulations. The information obtained is geographical and meteorological, not personal.</li>
+        </ul>
+
+        <h2>5. Children's Privacy</h2>
+        <p>Our Application is not directed to children under the age of 13 (or the minimum legal age in your jurisdiction). We do not knowingly collect personally identifiable information from minors. If we discover that a minor has provided us with personal data, we will immediately delete it from our local or authentication servers if applicable.</p>
+
+        <h2>6. Data Security</h2>
+        <p>We implement reasonable technical and organizational security measures to protect the information we collect against unauthorized access, disclosure, alteration, or destruction. These measures include:</p>
+        <ul>
+            <li><strong>Encryption of Communications:</strong> All communications with external APIs are conducted over HTTPS, ensuring that data is transmitted securely.</li>
+            <li><strong>Secure Storage of Credentials:</strong> On native platforms, session tokens and user information are stored using <code>expo-secure-store</code>, which provides encryption at the operating system level.</li>
+            <li><strong>Access Control:</strong> Access to information is limited to authorized personnel who need to know it in order to operate, develop, or improve the Application.</li>
+        </ul>
+
+        <h2>7. Your Rights</h2>
+        <p>Depending on your jurisdiction, you may have the following rights regarding your personal information:</p>
+        <ul>
+            <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
+            <li><strong>Rectification:</strong> Request the correction of any inaccurate or incomplete personal information.</li>
+            <li><strong>Deletion:</strong> Request the deletion of your personal information from our records (please note that simulation data is stored locally and can be deleted directly by you within the Application).</li>
+        </ul>
+
+        <h2>8. Changes to this Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top. You are advised to review this Privacy Policy periodically for any changes.</p>
+
+        <h2>9. Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+        <p><strong>Andara Devs</strong><br>
+        Support Email: <a href="mailto:andaradevs@gmail.com">andaradevs@gmail.com</a></p>
+    </div>
+
+    <!-- VERSIÓN EN ESPAÑOL -->
+    <div class="container" id="es">
         <h1>Política de Privacidad de SaberMetrics for MLB</h1>
         <p><strong>Fecha de entrada en vigor: 3 de julio de 2026</strong></p>
         
-        <p>Esta Política de Privacidad describe cómo SaberMetrics for MLB ("la Aplicación", "nosotros", "nuestro" o "nos") recopila, utiliza y protege la información cuando usted utiliza nuestra aplicación móvil[cite: 2]. Al usar la Aplicación, usted acepta las prácticas descritas en esta política[cite: 2].</p>
+        <p>Esta Política de Privacidad describe cómo SaberMetrics for MLB ("la Aplicación", "nosotros", "nuestro" o "nos") recopila, utiliza y protege la información cuando usted utiliza nuestra aplicación móvil. Al usar la Aplicación, usted acepta las prácticas descritas en esta política.</p>
 
         <h2>1. Información que Recopilamos</h2>
-        <p>La Aplicación SaberMetrics for MLB está diseñada para ser un simulador sabermétrico y, como tal, minimiza la recopilación de datos personales[cite: 2]. Recopilamos la siguiente información[cite: 2]:</p>
+        <p>La Aplicación SaberMetrics for MLB está diseñada para ser un simulador sabermétrico y, como tal, minimiza la recopilación de datos personales. Recopilamos la siguiente información:</p>
         <ul>
-            <li><strong>Información de Uso No Personal:</strong> Recopilamos datos anónimos sobre cómo interactúa con la Aplicación, como las funciones utilizadas, la frecuencia de uso, el tipo de dispositivo y el sistema operativo[cite: 2]. Esta información se utiliza para mejorar la funcionalidad y la experiencia del usuario de la Aplicación[cite: 2]. No se asocia con ninguna información de identificación personal[cite: 2].</li>
-            <li><strong>Datos de Simulaciones:</strong> Las simulaciones de juegos que usted realiza y los resultados generados se almacenan localmente en su dispositivo a través de <code>AsyncStorage</code>[cite: 2]. Esta información no se transmite a nuestros servidores ni se comparte con terceros[cite: 2]. Usted tiene control total sobre estos datos, incluyendo la capacidad de eliminarlos de su dispositivo[cite: 2].</li>
-            <li><strong>Información de Autenticación (Opcional):</strong> Si la Aplicación ofrece funciones de autenticación (por ejemplo, inicio de sesión para sincronización de datos o acceso a funciones premium), recopilaremos la información necesaria para gestionar su cuenta, como su nombre de usuario, dirección de correo electrónico y un identificador único[cite: 2]. Esta información se procesará de acuerdo con los estándares de seguridad de la industria y se almacenará de forma segura utilizando <code>expo-secure-store</code> en dispositivos nativos y cookies de sesión en la web[cite: 2]. No compartimos esta información con terceros, excepto cuando sea necesario para proporcionar el servicio de autenticación[cite: 2].</li>
+            <li><strong>Información de Uso No Personal:</strong> Recopilamos datos anónimos sobre cómo interactúa con la Aplicación, como las funciones utilizadas, la frecuencia de uso, el tipo de dispositivo y el sistema operativo. Esta información se utiliza para mejorar la funcionalidad y la experiencia del usuario de la Aplicación. No se asocia con ninguna información de identificación personal.</li>
+            <li><strong>Datos de Simulaciones:</strong> Las simulaciones de juegos que usted realiza y los resultados generados se almacenan localmente en su dispositivo a través de <code>AsyncStorage</code>. Esta información no se transmite a nuestros servidores ni se comparte con terceros. Usted tiene control total sobre estos datos, incluyendo la capacidad de eliminarlos de su dispositivo.</li>
+            <li><strong>Información de Autenticación (Opcional):</strong> Si la Aplicación ofrece funciones de autenticación (por ejemplo, inicio de sesión para sincronización de datos o acceso a funciones premium), recopilaremos la información necesaria para gestionar su cuenta, como su nombre de usuario, dirección de correo electrónico y un identificador único. Esta información se procesará de acuerdo con los estándares de seguridad de la industria y se almacenará de forma segura utilizando <code>expo-secure-store</code> en dispositivos nativos y cookies de sesión en la web. No compartimos esta información con terceros, excepto cuando sea necesario para proporcionar el servicio de autenticación.</li>
         </ul>
 
         <h2>2. Cómo Utilizamos su Información</h2>
-        <p>Utilizamos la información recopilada para los siguientes propósitos[cite: 2]:</p>
+        <p>Utilizamos la información recopilada para los siguientes propósitos:</p>
         <ul>
-            <li><strong>Proporcionar y Mejorar la Aplicación:</strong> Para operar, mantener y mejorar las funcionalidades de la Aplicación, incluyendo la optimización de las simulaciones y la interfaz de usuario[cite: 2].</li>
-            <li><strong>Análisis Interno:</strong> Para comprender cómo los usuarios interactúan con la Aplicación y para realizar análisis estadísticos y de rendimiento[cite: 2]. Esta información es agregada y anónima[cite: 2].</li>
-            <li><strong>Personalización:</strong> Para personalizar su experiencia dentro de la Aplicación, como recordar sus preferencias de idioma y tema[cite: 2].</li>
-            <li><strong>Seguridad:</strong> Para proteger la seguridad e integridad de la Aplicación y prevenir fraudes o actividades maliciosas[cite: 2].</li>
+            <li><strong>Proporcionar y Mejorar la Aplicación:</strong> Para operar, mantener y mejorar las funcionalidades de la Aplicación, incluyendo la optimización de las simulaciones y la interfaz de usuario.</li>
+            <li><strong>Análisis Interno:</strong> Para comprender cómo los usuarios interactúan con la Aplicación y para realizar análisis estadísticos y de rendimiento. Esta información es agregada y anónima.</li>
+            <li><strong>Personalización:</strong> Para personalizar su experiencia dentro de la Aplicación, como recordar sus preferencias de idioma y tema.</li>
+            <li><strong>Seguridad:</strong> Para proteger la seguridad e integridad de la Aplicación y prevenir fraudes o actividades maliciosas.</li>
         </ul>
 
         <h2>3. Compartir su Información y Publicidad de Terceros</h2>
-        <p>No vendemos, alquilamos ni compartimos su información personal con terceros, excepto en las siguientes circunstancias[cite: 2]:</p>
+        <p>No vendemos, alquilamos ni compartimos su información personal con terceros, excepto en las siguientes circunstancias:</p>
         <ul>
             <li><strong>Publicidad de Terceros (Google AdMob):</strong> Esta Aplicación utiliza el servicio de publicidad de terceros Google AdMob para mostrar anuncios. Google AdMob puede recopilar y utilizar datos anónimos, como el Identificador de Publicidad de su dispositivo (Advertising ID en Android), para personalizar los anuncios que se le muestran. Puede consultar la Política de Privacidad de Google AdMob directamente en su sitio web oficial.</li>
-            <li><strong>Proveedores de Servicios:</strong> Podemos compartir información no personal y agregada con proveedores de servicios que nos ayudan a operar la Aplicación (por ejemplo, servicios de análisis de rendimiento)[cite: 2]. Estos proveedores están obligados contractualmente a proteger su información y a utilizarla únicamente para los fines para los que fue divulgada[cite: 2].</li>
-            <li><strong>Cumplimiento Legal:</strong> Podemos divulgar su información si así lo exige la ley o en respuesta a una orden judicial válida, citación u otro proceso legal[cite: 2].</li>
-            <li><strong>Transferencias Comerciales:</strong> En caso de una fusión, adquisición o venta de activos, su información puede ser transferida a la entidad adquirente, la cual estará sujeta a esta Política de Privacidad[cite: 2].</li>
+            <li><strong>Proveedores de Servicios:</strong> Podemos compartir información no personal y agregada con proveedores de servicios que nos ayudan a operar la Aplicación (por ejemplo, servicios de análisis de rendimiento). Estos proveedores están obligados contractualmente a proteger su información y a utilizarla únicamente para los fines para los que fue divulgada.</li>
+            <li><strong>Cumplimiento Legal:</strong> Podemos divulgar su información si así lo exige la ley o en respuesta a una orden judicial válida, citación u otro proceso legal.</li>
+            <li><strong>Transferencias Comerciales:</strong> En caso de una fusión, adquisición o venta de activos, su información puede ser transferida a la entidad adquirente, la cual estará sujeta a esta Política de Privacidad.</li>
         </ul>
 
         <h2>4. Fuentes de Datos Externas</h2>
-        <p>La Aplicación obtiene datos de fuentes públicas y APIs de terceros para sus funcionalidades principales[cite: 2]:</p>
+        <p>La Aplicación obtiene datos de fuentes públicas y APIs de terceros para sus funcionalidades principales:</p>
         <ul>
-            <li><strong>MLB StatsAPI:</strong> Utilizamos la API oficial de la Major League Baseball para obtener estadísticas de equipos, calendarios de juegos, información de lanzadores y resultados de juegos[cite: 2]. Esta información es de dominio público y se utiliza únicamente para alimentar las simulaciones y las pantallas de la Aplicación[cite: 2].</li>
-            <li><strong>Open-Meteo Weather API:</strong> Utilizamos esta API para obtener datos meteorológicos relevantes para las simulaciones de juegos[cite: 2]. La información obtenida es geográfica y meteorológica, no personal[cite: 2].</li>
+            <li><strong>MLB StatsAPI:</strong> Utilizamos la API oficial de la Major League Baseball para obtener estadísticas de equipos, calendarios de juegos, información de lanzadores y resultados de juegos. Esta información es de dominio público y se utiliza únicamente para alimentar las simulaciones y las pantallas de la Aplicación.</li>
+            <li><strong>Open-Meteo Weather API:</strong> Utilizamos esta API para obtener datos meteorológicos relevantes para las simulaciones de juegos. La información obtenida es geográfica y meteorológica, no personal.</li>
         </ul>
 
         <h2>5. Privacidad de los Menores</h2>
         <p>Nuestra Aplicación no está dirigida a niños menores de 13 años (o la edad mínima legal en su jurisdicción). No recopilamos a sabiendas información de identificación personal de menores. Si descubrimos que un menor nos ha proporcionado datos personales, los eliminaremos de inmediato de nuestros servidores locales o de autenticación si existiesen.</p>
 
         <h2>6. Seguridad de los Datos</h2>
-        <p>Implementamos medidas de seguridad técnicas y organizativas razonables para proteger la información que recopilamos contra el acceso no autorizado, la divulgación, la alteración o la destrucción[cite: 2]. Estas medidas incluyen[cite: 2]:</p>
+        <p>Implementamos medidas de seguridad técnicas y organizativas razonables para proteger la información que recopilamos contra el acceso no autorizado, la divulgación, la alteración o la destrucción. Estas medidas incluyen:</p>
         <ul>
-            <li><strong>Cifrado de Comunicaciones:</strong> Todas las comunicaciones con APIs externas se realizan a través de HTTPS, garantizando que los datos se transmitan de forma segura[cite: 2].</li>
-            <li><strong>Almacenamiento Seguro de Credenciales:</strong> En plataformas nativas, los tokens de sesión y la información de usuario se almacenan utilizando <code>expo-secure-store</code>, que proporciona cifrado a nivel de sistema operativo[cite: 2].</li>
-            <li><strong>Control de Acceso:</strong> El acceso a la información se limita al personal autorizado que necesita conocerla para operar, desarrollar o mejorar la Aplicación[cite: 2].</li>
+            <li><strong>Cifrado de Comunicaciones:</strong> Todas las comunicaciones con APIs externas se realizan a través de HTTPS, garantizando que los datos se transmitan de forma segura.</li>
+            <li><strong>Almacenamiento Seguro de Credenciales:</strong> En plataformas nativas, los tokens de sesión y la información de usuario se almacenan utilizando <code>expo-secure-store</code>, que proporciona cifrado a nivel de sistema operativo.</li>
+            <li><strong>Control de Acceso:</strong> El acceso a la información se limita al personal autorizado que necesita conocerla para operar, desarrollar o mejorar la Aplicación.</li>
         </ul>
 
         <h2>7. Sus Derechos</h2>
-        <p>Dependiendo de su jurisdicción, usted puede tener los siguientes derechos con respecto a su información personal[cite: 2]:</p>
+        <p>Dependiendo de su jurisdicción, usted puede tener los siguientes derechos con respecto a su información personal:</p>
         <ul>
-            <li><strong>Acceso:</strong> Solicitar una copia de la información personal que tenemos sobre usted[cite: 2].</li>
-            <li><strong>Rectificación:</strong> Solicitar la corrección de cualquier información personal inexacta o incompleta[cite: 2].</li>
-            <li><strong>Eliminación:</strong> Solicitar la eliminación de su información personal de nuestros registros (tenga en cuenta que los datos de simulación se almacenan localmente y pueden ser eliminados directamente por usted desde la Aplicación)[cite: 2].</li>
+            <li><strong>Acceso:</strong> Solicitar una copia de la información personal que tenemos sobre usted.</li>
+            <li><strong>Rectificación:</strong> Solicitar la corrección de cualquier información personal inexacta o incompleta.</li>
+            <li><strong>Eliminación:</strong> Solicitar la eliminación de su información personal de nuestros registros (tenga en cuenta que los datos de simulación se almacenan localmente y pueden ser eliminados directamente por usted desde la Aplicación).</li>
         </ul>
 
         <h2>8. Cambios a esta Política de Privacidad</h2>
-        <p>Podemos actualizar nuestra Política de Privacidad de vez en cuando[cite: 2]. Le notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página y actualizando la "Fecha de entrada en vigor" en la parte superior[cite: 2]. Se le aconseja revisar esta Política de Privacidad periódicamente para cualquier cambio[cite: 2].</p>
+        <p>Podemos actualizar nuestra Política de Privacidad de vez en cuando. Le notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página y actualizando la "Fecha de entrada en vigor" en la parte superior. Se le aconseja revisar esta Política de Privacidad periódicamente para cualquier cambio.</p>
 
         <h2>9. Contacto</h2>
         <p>Si tiene alguna pregunta o inquietud sobre esta Política de Privacidad o nuestras prácticas de datos, por favor contáctenos en:</p>
         <p><strong>Andara Devs</strong><br>
         Correo electrónico de soporte: <a href="mailto:andaradevs@gmail.com">andaradevs@gmail.com</a></p>
+    </div>
 
-        <div class="footer">
-            &copy; 2026 Andara Devs. Todos los derechos reservados.
-        </div>
+    <div class="footer">
+        &copy; 2026 Andara Devs. All rights reserved / Todos los derechos reservados.
     </div>
 </body>
 </html>
