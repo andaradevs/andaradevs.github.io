@@ -1,0 +1,150 @@
+import os
+
+html_content = """<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargar Aplicación | SaberMetrics for MLB</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d1117;
+            color: #f0f6fc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 24px;
+            text-align: center;
+        }
+        .container {
+            max-width: 420px;
+            width: 100%;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .app-icon {
+            width: 88px;
+            height: 88px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        .app-icon svg {
+            width: 48px;
+            height: 48px;
+            fill: #ffffff;
+        }
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        p.subtitle {
+            font-size: 14px;
+            color: #8b949e;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .badge {
+            background: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 12px;
+            color: #58a6ff;
+            font-weight: 600;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background-color: #238636;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 14px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 12px rgba(35, 134, 54, 0.3);
+        }
+        .download-btn:hover {
+            background-color: #2ea043;
+        }
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+        .download-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+        .footer-note {
+            margin-top: 20px;
+            font-size: 11px;
+            color: #6e7681;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- App Icon -->
+        <div class="app-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/>
+            </svg>
+        </div>
+
+        <h1>SaberMetrics for MLB</h1>
+        <p class="subtitle">Análisis avanzado, estadísticas en tiempo real y modelos de simulación.</p>
+
+        <div class="badge-container">
+            <span class="badge">★ 4.8 / 5.0</span>
+            <span class="badge">Android App</span>
+        </div>
+
+        <!-- Enlace directo a Google Play Store -->
+        <a href="https://play.google.com/store/apps/details?id=com.app.sabermetricsformlb" class="download-btn" id="playstore-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+            </svg>
+            Disponible en Google Play
+        </a>
+
+        <p class="footer-note">Haz clic en el botón para ir a la tienda oficial.</p>
+    </div>
+
+</body>
+</html>
+"""
+
+output_path = "index.html"
+with open(output_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(f"File updated successfully: {output_path}")
