@@ -1,56 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy / Política de Privacidad - SaberMetrics for MLB</title>
+    <title>Privacy Policy & Terms of Service - SaberMetrics for MLB</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: #f4f4f9;
+        }
+        .header-nav {
+            position: sticky;
+            top: 0;
+            background: #0d1b2a;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header-nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 4px 8px;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            background-color: #1b263b;
+            display: inline-block;
+        }
+        .header-nav a:hover {
+            background-color: #415a77;
         }
         .container {
             background: #fff;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-        .lang-nav {
-            position: sticky;
-            top: 0;
-            background: #0d1b2a;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: center;
-            z-index: 1000;
-        }
-        .lang-nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        .lang-nav a:hover {
-            text-decoration: underline;
+            margin-bottom: 30px;
         }
         h1 {
             color: #0d1b2a;
             border-bottom: 2px solid #e0e0e0;
             padding-bottom: 10px;
-            font-size: 28px;
+            font-size: 26px;
         }
         h2 {
             color: #1b263b;
-            margin-top: 30px;
-            font-size: 20px;
+            margin-top: 25px;
+            font-size: 19px;
+        }
+        h3 {
+            color: #415a77;
+            font-size: 16px;
         }
         p, li {
             font-size: 15px;
@@ -58,6 +67,11 @@
         }
         ul {
             padding-left: 20px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
         }
         .footer {
             margin-top: 40px;
@@ -67,85 +81,28 @@
             border-top: 1px solid #e0e0e0;
             padding-top: 20px;
         }
+        .section-divider {
+            border-top: 3px dashed #0d1b2a;
+            margin: 50px 0;
+        }
     </style>
 </head>
 <body>
 
-    <div class="lang-nav">
-        <a href="#en">🇺🇸 English</a>
-        <a href="#es">🇪🇸 Español</a>
+    <!-- NAVEGACIÓN RÁPIDA -->
+    <div class="header-nav">
+        <a href="#privacidad-es">🇪🇸 Privacidad</a>
+        <a href="#terminos-es">🇪🇸 Términos</a>
+        <a href="#privacy-en">🇺🇸 Privacy Policy</a>
+        <a href="#terms-en">🇺🇸 Terms of Service</a>
     </div>
 
-    <!-- ENGLISH VERSION (DEFAULT) -->
-    <div class="container" id="en">
-        <h1>Privacy Policy of SaberMetrics for MLB</h1>
-        <p><strong>Effective Date: July 3, 2026</strong></p>
-        
-        <p>This Privacy Policy describes how SaberMetrics for MLB ("the Application", "we", "our", or "us") collects, uses, and protects information when you use our mobile application. By using the Application, you agree to the practices described in this policy.</p>
+    <!-- ========================================== -->
+    <!-- 🇪🇸 SECCIÓN EN ESPAÑOL                      -->
+    <!-- ========================================== -->
 
-        <h2>1. Information We Collect</h2>
-        <p>SaberMetrics for MLB is designed to be a sabermetric simulator and, as such, minimizes the collection of personal data. We collect the following information:</p>
-        <ul>
-            <li><strong>Non-Personal Usage Information:</strong> We collect anonymous data about how you interact with the Application, such as the features used, frequency of use, device type, and operating system. This information is used to improve the functionality and user experience of the Application. It is not associated with any personally identifiable information.</li>
-            <li><strong>Simulation Data:</strong> The game simulations you perform and the generated results are stored locally on your device via <code>AsyncStorage</code>. This information is not transmitted to our servers nor shared with third parties. You have full control over this data, including the ability to delete it from your device.</li>
-            <li><strong>Authentication Information (Optional):</strong> If the Application offers authentication features (e.g., login for data synchronization or access to premium features), we will collect the necessary information to manage your account, such as your username, email address, and a unique identifier. This information will be processed in accordance with industry security standards and securely stored using <code>expo-secure-store</code> on native devices and session cookies on the web. We do not share this information with third parties except as necessary to provide the authentication service.</li>
-        </ul>
-
-        <h2>2. How We Use Your Information</h2>
-        <p>We use the collected information for the following purposes:</p>
-        <ul>
-            <li><strong>To Provide and Improve the Application:</strong> To operate, maintain, and improve the functionalities of the Application, including the optimization of simulations and the user interface.</li>
-            <li><strong>Internal Analytics:</strong> To understand how users interact with the Application and to perform statistical and performance analyses. This information is aggregated and anonymous.</li>
-            <li><strong>Personalization:</strong> To personalize your experience within the Application, such as remembering your language and theme preferences.</li>
-            <li><strong>Security:</strong> To protect the security and integrity of the Application and to prevent fraud or malicious activities.</li>
-        </ul>
-
-        <h2>3. Sharing Your Information and Third-Party Advertising</h2>
-        <p>We do not sell, rent, or share your personal information with third parties, except in the following circumstances:</p>
-        <ul>
-            <li><strong>Third-Party Advertising (Google AdMob):</strong> This Application uses the third-party advertising service Google AdMob to display advertisements. Google AdMob may collect and use anonymous data, such as your device's Advertising ID (on Android), to personalize the ads shown to you. You can review Google AdMob's Privacy Policy directly on their official website.</li>
-            <li><strong>Service Providers:</strong> We may share non-personal and aggregated information with service providers who assist us in operating the Application (e.g., performance analytics services). These providers are contractually obligated to protect your information and use it solely for the purposes for which it was disclosed.</li>
-            <li><strong>Legal Compliance:</strong> We may disclose your information if required to do so by law or in response to a valid court order, subpoena, or other legal process.</li>
-            <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or asset sale, your information may be transferred to the acquiring entity, which will be bound by this Privacy Policy.</li>
-        </ul>
-
-        <h2>4. External Data Sources</h2>
-        <p>The Application obtains data from public sources and third-party APIs for its core functionalities:</p>
-        <ul>
-            <li><strong>MLB StatsAPI:</strong> We use the official Major League Baseball API to obtain team statistics, game schedules, pitcher information, and game results. This information is in the public domain and is used solely to feed the simulations and Application screens.</li>
-            <li><strong>Open-Meteo Weather API:</strong> We use this API to obtain relevant weather data for game simulations. The information obtained is geographical and meteorological, not personal.</li>
-        </ul>
-
-        <h2>5. Children's Privacy</h2>
-        <p>Our Application is not directed to children under the age of 13 (or the minimum legal age in your jurisdiction). We do not knowingly collect personally identifiable information from minors. If we discover that a minor has provided us with personal data, we will immediately delete it from our local or authentication servers if applicable.</p>
-
-        <h2>6. Data Security</h2>
-        <p>We implement reasonable technical and organizational security measures to protect the information we collect against unauthorized access, disclosure, alteration, or destruction. These measures include:</p>
-        <ul>
-            <li><strong>Encryption of Communications:</strong> All communications with external APIs are conducted over HTTPS, ensuring that data is transmitted securely.</li>
-            <li><strong>Secure Storage of Credentials:</strong> On native platforms, session tokens and user information are stored using <code>expo-secure-store</code>, which provides encryption at the operating system level.</li>
-            <li><strong>Access Control:</strong> Access to information is limited to authorized personnel who need to know it in order to operate, develop, or improve the Application.</li>
-        </ul>
-
-        <h2>7. Your Rights</h2>
-        <p>Depending on your jurisdiction, you may have the following rights regarding your personal information:</p>
-        <ul>
-            <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
-            <li><strong>Rectification:</strong> Request the correction of any inaccurate or incomplete personal information.</li>
-            <li><strong>Deletion:</strong> Request the deletion of your personal information from our records (please note that simulation data is stored locally and can be deleted directly by you within the Application).</li>
-        </ul>
-
-        <h2>8. Changes to this Privacy Policy</h2>
-        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top. You are advised to review this Privacy Policy periodically for any changes.</p>
-
-        <h2>9. Contact Us</h2>
-        <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
-        <p><strong>Andara Devs</strong><br>
-        Support Email: <a href="mailto:andaradevs@gmail.com">andaradevs@gmail.com</a></p>
-    </div>
-
-    <!-- VERSIÓN EN ESPAÑOL -->
-    <div class="container" id="es">
+    <!-- POLÍTICA DE PRIVACIDAD (ESPAÑOL) -->
+    <div id="privacidad-es" class="container">
         <h1>Política de Privacidad de SaberMetrics for MLB</h1>
         <p><strong>Fecha de entrada en vigor: 3 de julio de 2026</strong></p>
         
@@ -212,8 +169,193 @@
         Correo electrónico de soporte: <a href="mailto:andaradevs@gmail.com">andaradevs@gmail.com</a></p>
     </div>
 
+    <!-- TÉRMINOS DE SERVICIO (ESPAÑOL) -->
+    <div id="terminos-es" class="container">
+        <h1>Términos de Servicio de SaberMetrics for MLB</h1>
+        <p><strong>Fecha de entrada en vigor: 3 de julio de 2026</strong></p>
+        
+        <p>Bienvenido a SaberMetrics for MLB ("la Aplicación"), un simulador sabermétrico diseñado para analizar y predecir resultados de juegos de béisbol. Al acceder o utilizar nuestra Aplicación, usted acepta estar sujeto a estos Términos de Servicio ("Términos"). Si no está de acuerdo con estos Términos, no utilice la Aplicación.</p>
+
+        <h2>1. Aceptación de los Términos</h2>
+        <p>Al descargar, instalar o utilizar la Aplicación, usted reconoce que ha leído, entendido y aceptado estos Términos, así como nuestra Política de Privacidad. Estos Términos constituyen un acuerdo legal vinculante entre usted y Andara Devs.</p>
+
+        <h2>2. Uso de la Aplicación</h2>
+        <p>La Aplicación SaberMetrics for MLB se proporciona únicamente para su uso personal y no comercial. Usted acepta no utilizar la Aplicación para ningún propósito ilegal o prohibido por estos Términos.</p>
+
+        <h3>2.1. Precisión de la Información</h3>
+        <p>La Aplicación utiliza datos de la API oficial de la MLB y de Open-Meteo Weather API, así como algoritmos de simulación (Montecarlo) para generar predicciones. Si bien nos esforzamos por la precisión, no garantizamos la exactitud, integridad o fiabilidad de las predicciones, estadísticas o cualquier otra información proporcionada por la Aplicación.</p>
+
+        <h3>2.2. Exención de Responsabilidad sobre Apuestas y Juego (Muy Importante)</h3>
+        <p><strong>SaberMetrics for MLB es una herramienta estrictamente informativa, estadística y de entretenimiento. La Aplicación no es una plataforma de apuestas, no gestiona dinero real ni fomenta el juego de azar. El usuario es el único responsable del uso que dé a los datos generados por el simulador. No nos hacemos responsables de pérdidas financieras o decisiones de apuestas tomadas por el usuario basadas en los resultados de las simulaciones. Las predicciones son solo estimaciones y no deben considerarse como consejos de apuestas o financieros.</strong></p>
+
+        <h3>2.3. Restricciones de Uso</h3>
+        <p>Usted acepta no:</p>
+        <ul>
+            <li>Modificar, adaptar, traducir, realizar ingeniería inversa, descompilar o desensamblar cualquier parte de la Aplicación.</li>
+            <li>Utilizar la Aplicación de cualquier manera que pueda dañar, deshabilitar, sobrecargar o tener un impacto negativo en nuestros servidores o redes, o interferir con el uso y disfrute de la Aplicación por parte de terceros.</li>
+            <li>Intentar obtener acceso no autorizado a cualquier parte de la Aplicación, otras cuentas, sistemas informáticos o redes conectadas a nuestros servidores a través de piratería, extracción de contraseñas o cualquier otro medio.</li>
+            <li>Utilizar la Aplicación para cualquier actividad comercial sin nuestro consentimiento previo por escrito.</li>
+        </ul>
+
+        <h2>3. Propiedad Intelectual</h2>
+        <p>Todos los derechos, títulos e intereses en y para la Aplicación, incluyendo todos los derechos de autor, marcas comerciales, secretos comerciales y otros derechos de propiedad intelectual, son propiedad de <strong>Andara Devs</strong> o sus licenciantes. Estos Términos no le otorgan ningún derecho sobre la Aplicación o su contenido, excepto el derecho limitado a usarla de acuerdo con estos Términos.</p>
+
+        <h2>4. Contenido de Terceros y Enlaces</h2>
+        <p>La Aplicación puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por Andara Devs. No tenemos control ni asumimos responsabilidad por el contenido, las políticas de privacidad o las prácticas de los sitios web o servicios de terceros.</p>
+
+        <h2>5. Exclusión de Garantías</h2>
+        <p>LA APLICACIÓN SE PROPORCIONA "TAL CUAL" Y "SEGÚN DISPONIBILIDAD", SIN GARANTÍAS DE NINGÚN TIPO, YA SEAN EXPRESAS O IMPLÍCITAS. ANDARA DEVS NO GARANTIZA QUE LA APLICACIÓN FUNCIONARÁ SIN INTERRUPCIONES, SERÁ SEGURA O ESTARÁ LIBRE DE ERRORES.</p>
+
+        <h2>6. Limitación de Responsabilidad</h2>
+        <p>EN NINGÚN CASO ANDARA DEVS, SUS DIRECTORES, EMPLEADOS O SOCIOS SERÁN RESPONSABLES DE NINGÚN DAÑO INDIRECTO, INCIDENTAL, ESPECIAL, CONSECUENTE O PUNITIVO, INCLUYENDO, SIN LIMITACIÓN, PÉRDIDA DE BENEFICIOS, DATOS O USO, RESULTANTES DE SU ACCESO O USO O INCAPACIDAD DE ACCEDER O USAR LA APLICACIÓN.</p>
+
+        <h2>7. Indemnización</h2>
+        <p>Usted acepta defender, indemnizar y eximir de responsabilidad a Andara Devs de y contra cualquier reclamo, daño, obligación, pérdida, responsabilidad o costo resultantes de o que surjan de su uso y acceso a la Aplicación, o por un incumplimiento de estos Términos.</p>
+
+        <h2>8. Cambios en los Términos</h2>
+        <p>Nos reservamos el derecho, a nuestra entera discreción, de modificar o reemplazar estos Términos en cualquier momento. Al continuar accediendo o utilizando nuestra Aplicación después de que esas revisiones entren en vigor, usted acepta estar sujeto a los términos revisados.</p>
+
+        <h2>9. Ley Aplicable</h2>
+        <p>Estos Términos se regirán e interpretarán de acuerdo con las leyes del país/estado de residencia de la marca principal de desarrollo Andara Devs, sin tener en cuenta sus disposiciones sobre conflictos de leyes.</p>
+
+        <h2>10. Contacto</h2>
+        <p>Si tiene alguna pregunta sobre estos Términos, por favor contáctenos en:</p>
+        <p><strong>Andara Devs</strong><br>
+        Correo electrónico de soporte: <a href="mailto:andaradevs@gmail.com">andaradevs@gmail.com</a></p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ========================================== -->
+    <!-- 🇺🇸 ENGLISH SECTION                         -->
+    <!-- ========================================== -->
+
+    <!-- PRIVACY POLICY (ENGLISH) -->
+    <div id="privacy-en" class="container">
+        <h1>Privacy Policy of SaberMetrics for MLB</h1>
+        <p><strong>Effective Date: July 3, 2026</strong></p>
+        
+        <p>This Privacy Policy describes how SaberMetrics for MLB ("the Application", "we", "our", or "us") collects, uses, and protects information when you use our mobile application. By using the Application, you agree to the practices described in this policy.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>SaberMetrics for MLB is designed to be a sabermetric simulator and, as such, minimizes the collection of personal data. We collect the following information:</p>
+        <ul>
+            <li><strong>Non-Personal Usage Information:</strong> We collect anonymous data about how you interact with the Application, such as the features used, frequency of use, device type, and operating system. This information is used to improve the functionality and user experience of the Application. It is not associated with any personally identifiable information.</li>
+            <li><strong>Simulation Data:</strong> The game simulations you perform and the generated results are stored locally on your device via <code>AsyncStorage</code>. This information is not transmitted to our servers nor shared with third parties. You have full control over this data, including the ability to delete it from your device.</li>
+            <li><strong>Authentication Information (Optional):</strong> If the Application offers authentication features (e.g., login for data synchronization or access to premium features), we will collect the necessary information to manage your account, such as your username, email address, and a unique identifier. This information will be processed in accordance with industry security standards and securely stored using <code>expo-secure-store</code> on native devices and session cookies on the web. We do not share this information with third parties except as necessary to provide the authentication service.</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the collected information for the following purposes:</p>
+        <ul>
+            <li><strong>To Provide and Improve the Application:</strong> To operate, maintain, and improve the functionalities of the Application, including the optimization of simulations and the user interface.</li>
+            <li><strong>Internal Analytics:</strong> To understand how users interact with the Application and to perform statistical and performance analyses. This information is aggregated and anonymous.</li>
+            <li><strong>Personalization:</strong> To personalize your experience within the Application, such as remembering your language and theme preferences.</li>
+            <li><strong>Security:</strong> To protect the security and integrity of the Application and to prevent fraud or malicious activities.</li>
+        </ul>
+
+        <h2>3. Sharing Your Information and Third-Party Advertising</h2>
+        <p>We do not sell, rent, or share your personal information with third parties, except in the following circumstances:</p>
+        <ul>
+            <li><strong>Third-Party Advertising (Google AdMob):</strong> This Application uses the third-party advertising service Google AdMob to display advertisements. Google AdMob may collect and use anonymous data, such as your device's Advertising ID (on Android), to personalize the ads shown to you. You can review Google AdMob's Privacy Policy directly on their official website.</li>
+            <li><strong>Service Providers:</strong> We may share non-personal and aggregated information with service providers who assist us in operating the Application (e.g., performance analytics services). These providers are contractually obligated to protect your information and use it solely for the purposes for which it was disclosed.</li>
+            <li><strong>Legal Compliance:</strong> We may disclose your information if required to do so by law or in response to a valid court order, subpoena, or other legal process.</li>
+            <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or asset sale, your information may be transferred to the acquiring entity, which will be bound by this Privacy Policy.</li>
+        </ul>
+
+        <h2>4. External Data Sources</h2>
+        <p>The Application obtains data from public sources and third-party APIs for its core functionalities:</p>
+        <ul>
+            <li><strong>MLB StatsAPI:</strong> We use the official Major League Baseball API to obtain team statistics, game schedules, pitcher information, and game results. This information is in the public domain and is used solely to feed the simulations and Application screens.</li>
+            <li><strong>Open-Meteo Weather API:</strong> We use this API to obtain relevant weather data for game simulations. The information obtained is geographical and meteorological, not personal.</li>
+        </ul>
+
+        <h2>5. Children's Privacy</h2>
+        <p>Our Application is not directed to children under the age of 13 (or the minimum legal age in your jurisdiction). We do not knowingly collect personally identifiable information from minors. If we discover that a minor has provided us with personal data, we will immediately delete it from our local or authentication servers if applicable.</p>
+
+        <h2>6. Data Security</h2>
+        <p>We implement reasonable technical and organizational security measures to protect the information we collect against unauthorized access, disclosure, alteration, or destruction. These measures include:</p>
+        <ul>
+            <li><strong>Encryption of Communications:</strong> All communications with external APIs are conducted over HTTPS, ensuring that data is transmitted securely.</li>
+            <li><strong>Secure Storage of Credentials:</strong> On native platforms, session tokens and user information are stored using <code>expo-secure-store</code>, which provides encryption at the operating system level.</li>
+            <li><strong>Access Control:</strong> Access to information is limited to authorized personnel who need to know it in order to operate, develop, or improve the Application.</li>
+        </ul>
+
+        <h2>7. Your Rights</h2>
+        <p>Depending on your jurisdiction, you may have the following rights regarding your personal information:</p>
+        <ul>
+            <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
+            <li><strong>Rectification:</strong> Request the correction of any inaccurate or incomplete personal information.</li>
+            <li><strong>Deletion:</strong> Request the deletion of your personal information from our records (please note that simulation data is stored locally and can be deleted directly by you within the Application).</li>
+        </ul>
+
+        <h2>8. Changes to this Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top. You are advised to review this Privacy Policy periodically for any changes.</p>
+
+        <h2>9. Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+        <p><strong>Andara Devs</strong><br>
+        Support Email: <a href="mailto:andaradevs@gmail.com">andaradevs@gmail.com</a></p>
+    </div>
+
+    <!-- TERMS OF SERVICE (ENGLISH) -->
+    <div id="terms-en" class="container">
+        <h1>Terms of Service of SaberMetrics for MLB</h1>
+        <p><strong>Effective Date: July 3, 2026</strong></p>
+        
+        <p>Welcome to SaberMetrics for MLB ("the Application"), a sabermetric simulator designed to analyze and predict baseball game outcomes. By accessing or using our Application, you agree to be bound by these Terms of Service ("Terms"). If you do not agree with these Terms, do not use the Application.</p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By downloading, installing, or using the Application, you acknowledge that you have read, understood, and accepted these Terms, as well as our Privacy Policy. These Terms constitute a binding legal agreement between you and Andara Devs.</p>
+
+        <h2>2. Use of the Application</h2>
+        <p>The SaberMetrics for MLB Application is provided solely for your personal and non-commercial use. You agree not to use the Application for any purpose that is unlawful or prohibited by these Terms.</p>
+
+        <h3>2.1. Accuracy of Information</h3>
+        <p>The Application uses data from the official MLB API and the Open-Meteo Weather API, as well as simulation algorithms (Monte Carlo) to generate predictions. While we strive for accuracy, we do not guarantee the exactness, completeness, or reliability of the predictions, statistics, or any other information provided by the Application.</p>
+
+        <h3>2.2. Betting and Gambling Disclaimer (Very Important)</h3>
+        <p><strong>SaberMetrics for MLB is a strictly informational, statistical, and entertainment tool. The Application is not a betting platform, does not handle real money, and does not encourage or promote gambling. The user is solely responsible for how they use the data generated by the simulator. We are not responsible for any financial losses or betting decisions made by the user based on the simulation results. Predictions are mere estimates and should not be considered betting or financial advice.</strong></p>
+
+        <h3>2.3. Usage Restrictions</h3>
+        <p>You agree not to:</p>
+        <ul>
+            <li>Modify, adapt, translate, reverse engineer, decompile, or disassemble any part of the Application.</li>
+            <li>Use the Application in any manner that could damage, disable, overburden, or impair our servers or networks, or interfere with any third party's use and enjoyment of the Application.</li>
+            <li>Attempt to gain unauthorized access to any part of the Application, other accounts, computer systems, or networks connected to our servers through hacking, password mining, or any other means.</li>
+            <li>Use the Application for any commercial activity without our prior written consent.</li>
+        </ul>
+
+        <h2>3. Intellectual Property</h2>
+        <p>All rights, titles, and interests in and to the Application, including all copyrights, trademarks, trade secrets, and other intellectual property rights, are the property of <strong>Andara Devs</strong> or its licensors. These Terms do not grant you any rights over the Application or its content, except for the limited right to use it in accordance with these Terms.</p>
+
+        <h2>4. Third-Party Content and Links</h2>
+        <p>The Application may contain links to third-party websites or services that are not owned or controlled by Andara Devs. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services.</p>
+
+        <h2>5. Disclaimer of Warranties</h2>
+        <p>THE APPLICATION IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. ANDARA DEVS DOES NOT WARRANT THAT THE APPLICATION WILL OPERATE UNINTERRUPTED, BE SECURE, OR BE ERROR-FREE.</p>
+
+        <h2>6. Limitation of Liability</h2>
+        <p>IN NO EVENT SHALL ANDARA DEVS, ITS DIRECTORS, EMPLOYEES, OR PARTNERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, OR USE, RESULTING FROM YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE APPLICATION.</p>
+
+        <h2>7. Indemnification</h2>
+        <p>You agree to defend, indemnify, and hold harmless Andara Devs from and against any claims, damages, obligations, losses, liabilities, or costs resulting from or arising out of your use and access to the Application, or any breach of these Terms.</p>
+
+        <h2>8. Changes to the Terms</h2>
+        <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Application after those revisions become effective, you agree to be bound by the revised terms.</p>
+
+        <h2>9. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the country/state of residence of the main development brand Andara Devs, without regard to its conflict of law provisions.</p>
+
+        <h2>10. Contact Us</h2>
+        <p>If you have any questions about these Terms, please contact us at:</p>
+        <p><strong>Andara Devs</strong><br>
+        Support Email: <a href="mailto:andaradevs@gmail.com">andaradevs@gmail.com</a></p>
+    </div>
+
     <div class="footer">
         &copy; 2026 Andara Devs. All rights reserved / Todos los derechos reservados.
     </div>
+
 </body>
 </html>
