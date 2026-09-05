@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AndaraDevs | Apps</title>
+    <title>AndaraDevs | Applications</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -41,7 +41,7 @@
             position: relative;
         }
 
-        /* Language Selector Controls */
+        /* Language Switcher */
         .lang-switch {
             position: absolute;
             top: 15px;
@@ -51,7 +51,7 @@
             backdrop-filter: blur(8px);
             border: 1px solid rgba(0, 242, 254, 0.4);
             border-radius: 20px;
-            padding: 4px 10px;
+            padding: 4px 12px;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -96,7 +96,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Foto de perfil - perfil.jpg */
+        /* Profile Picture - perfil.jpg */
         .profile-img {
             width: 120px;
             height: 120px;
@@ -159,7 +159,7 @@
             gap: 1.5rem;
         }
 
-        /* App Card Destacada */
+        /* App Card */
         .app-card {
             background-color: var(--card-bg);
             border-radius: 16px;
@@ -179,7 +179,7 @@
             box-shadow: 0 5px 20px rgba(0, 242, 254, 0.2);
         }
 
-        /* Logo de la App - logo.png */
+        /* App Logo - logo.png */
         .app-icon {
             width: 90px;
             height: 90px;
@@ -208,7 +208,7 @@
             word-break: break-all;
         }
 
-        /* Placeholder Grid para Próximamente */
+        /* Placeholder Grid */
         .future-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -279,8 +279,8 @@
         <div class="lang-switch">
             <i class="fas fa-globe"></i>
             <select id="langSelect" onchange="changeLanguage(this.value)">
-                <option value="es" selected>ES</option>
-                <option value="en">EN</option>
+                <option value="en" selected>EN</option>
+                <option value="es">ES</option>
             </select>
         </div>
 
@@ -297,18 +297,18 @@
 
         <div class="bio-section">
             <h1>AndaraDevs</h1>
-            <p class="subtitle" id="txt-subtitle">Soluciones Móviles y Desarrollo de Apps</p>
+            <p class="subtitle" id="txt-subtitle">Mobile Solutions & App Development</p>
         </div>
 
         <div class="apps-section">
-            <h2 class="section-title" id="txt-section-title">Nuestras Aplicaciones</h2>
+            <h2 class="section-title" id="txt-section-title">Our Applications</h2>
             
             <div class="apps-grid">
                 <a href="https://play.google.com/store/apps/details?id=com.app.sabermetricsformlb" target="_blank" class="app-card">
-                    <img src="logo.png" alt="SaberMetrics para MLB Logo" class="app-icon">
+                    <img src="logo.png" alt="SaberMetrics for MLB Logo" class="app-icon">
                     <div class="app-info">
-                        <h3>SaberMetrics para MLB</h3>
-                        <p id="txt-app-desc">Analítica y estadísticas de béisbol de vanguardia. Simulaciones avanzadas y métricas de rendimiento.</p>
+                        <h3 id="txt-app-title">SaberMetrics for MLB</h3>
+                        <p id="txt-app-desc">Cutting-edge baseball analytics & stats. Advanced Monte Carlo simulations and performance metrics.</p>
                         <span class="app-link-text">https://play.google.com/store/apps/details?id=com.app.sabermetricsformlb</span>
                     </div>
                 </a>
@@ -316,54 +316,60 @@
 
             <div class="future-grid">
                 <div class="placeholder-card">
-                    <div class="placeholder-icon">icon</div>
-                    <span class="txt-coming-soon">Próximamente</span>
+                    <div class="placeholder-icon" class="txt-icon">icon</div>
+                    <span class="txt-coming-soon">Coming Soon</span>
                 </div>
                 <div class="placeholder-card">
-                    <div class="placeholder-icon">icon</div>
-                    <span class="txt-coming-soon">Próximamente</span>
+                    <div class="placeholder-icon" class="txt-icon">icon</div>
+                    <span class="txt-coming-soon">Coming Soon</span>
                 </div>
                 <div class="placeholder-card">
-                    <div class="placeholder-icon">icon</div>
-                    <span class="txt-coming-soon">Próximamente</span>
+                    <div class="placeholder-icon" class="txt-icon">icon</div>
+                    <span class="txt-coming-soon">Coming Soon</span>
                 </div>
                 <div class="placeholder-card">
-                    <div class="placeholder-icon">icon</div>
-                    <span class="txt-coming-soon">Próximamente</span>
+                    <div class="placeholder-icon" class="txt-icon">icon</div>
+                    <span class="txt-coming-soon">Coming Soon</span>
                 </div>
                 <div class="placeholder-card">
-                    <div class="placeholder-icon">icon</div>
-                    <span class="txt-coming-soon">Próximamente</span>
+                    <div class="placeholder-icon" class="txt-icon">icon</div>
+                    <span class="txt-coming-soon">Coming Soon</span>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p id="txt-footer">&copy; 2026 AndaraDevs. Todos los derechos reservados.</p>
+            <p id="txt-footer">&copy; 2026 AndaraDevs. All rights reserved.</p>
         </footer>
     </div>
 
     <script>
         const translations = {
-            es: {
-                subtitle: "Soluciones Móviles y Desarrollo de Apps",
-                sectionTitle: "Nuestras Aplicaciones",
-                appDesc: "Analítica y estadísticas de béisbol de vanguardia. Simulaciones avanzadas y métricas de rendimiento.",
-                comingSoon: "Próximamente",
-                footer: "© 2026 AndaraDevs. Todos los derechos reservados."
-            },
             en: {
+                pageTitle: "AndaraDevs | Applications",
                 subtitle: "Mobile Solutions & App Development",
                 sectionTitle: "Our Applications",
-                appDesc: "Cutting-edge baseball analytics & stats. Advanced simulations and performance metrics.",
+                appTitle: "SaberMetrics for MLB",
+                appDesc: "Cutting-edge baseball analytics & stats. Advanced Monte Carlo simulations and performance metrics.",
                 comingSoon: "Coming Soon",
                 footer: "© 2026 AndaraDevs. All rights reserved."
+            },
+            es: {
+                pageTitle: "AndaraDevs | Aplicaciones",
+                subtitle: "Soluciones Móviles y Desarrollo de Apps",
+                sectionTitle: "Nuestras Aplicaciones",
+                appTitle: "SaberMetrics para MLB",
+                appDesc: "Analítica y estadísticas de béisbol de vanguardia. Simulaciones avanzadas de Monte Carlo y métricas de rendimiento.",
+                comingSoon: "Próximamente",
+                footer: "© 2026 AndaraDevs. Todos los derechos reservados."
             }
         };
 
         function changeLanguage(lang) {
+            document.title = translations[lang].pageTitle;
             document.getElementById('txt-subtitle').textContent = translations[lang].subtitle;
             document.getElementById('txt-section-title').textContent = translations[lang].sectionTitle;
+            document.getElementById('txt-app-title').textContent = translations[lang].appTitle;
             document.getElementById('txt-app-desc').textContent = translations[lang].appDesc;
             document.getElementById('txt-footer').textContent = translations[lang].footer;
 
