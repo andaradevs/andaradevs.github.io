@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AndaraDevs | Nuestras Aplicaciones</title>
+    <title>AndaraDevs | Apps</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -39,6 +39,42 @@
             min-height: 100vh;
             box-shadow: 0 0 30px rgba(0, 242, 254, 0.1);
             position: relative;
+        }
+
+        /* Language Selector Controls */
+        .lang-switch {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(10, 15, 24, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 242, 254, 0.4);
+            border-radius: 20px;
+            padding: 4px 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-switch select {
+            background: transparent;
+            color: var(--text-main);
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .lang-switch select option {
+            background: var(--card-bg);
+            color: var(--text-main);
+        }
+
+        .lang-switch i {
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
         }
 
         /* Banner Header - panoramica.jpg */
@@ -240,6 +276,14 @@
 <body>
 
     <div class="container">
+        <div class="lang-switch">
+            <i class="fas fa-globe"></i>
+            <select id="langSelect" onchange="changeLanguage(this.value)">
+                <option value="es" selected>ES</option>
+                <option value="en">EN</option>
+            </select>
+        </div>
+
         <div class="banner-container"></div>
 
         <div class="profile-container">
@@ -253,18 +297,18 @@
 
         <div class="bio-section">
             <h1>AndaraDevs</h1>
-            <p class="subtitle">Mobile Solutions & App Development</p>
+            <p class="subtitle" id="txt-subtitle">Soluciones Móviles y Desarrollo de Apps</p>
         </div>
 
         <div class="apps-section">
-            <h2 class="section-title">Nuestras Aplicaciones</h2>
+            <h2 class="section-title" id="txt-section-title">Nuestras Aplicaciones</h2>
             
             <div class="apps-grid">
                 <a href="https://play.google.com/store/apps/details?id=com.app.sabermetricsformlb" target="_blank" class="app-card">
                     <img src="logo.png" alt="SaberMetrics para MLB Logo" class="app-icon">
                     <div class="app-info">
                         <h3>SaberMetrics para MLB</h3>
-                        <p>Analítica y estadísticas de béisbol de vanguardia. Simulaciones avanzadas y métricas de rendimiento.</p>
+                        <p id="txt-app-desc">Analítica y estadísticas de béisbol de vanguardia. Simulaciones avanzadas y métricas de rendimiento.</p>
                         <span class="app-link-text">https://play.google.com/store/apps/details?id=com.app.sabermetricsformlb</span>
                     </div>
                 </a>
@@ -273,31 +317,63 @@
             <div class="future-grid">
                 <div class="placeholder-card">
                     <div class="placeholder-icon">icon</div>
-                    <span>Próximamente</span>
+                    <span class="txt-coming-soon">Próximamente</span>
                 </div>
                 <div class="placeholder-card">
                     <div class="placeholder-icon">icon</div>
-                    <span>Próximamente</span>
+                    <span class="txt-coming-soon">Próximamente</span>
                 </div>
                 <div class="placeholder-card">
                     <div class="placeholder-icon">icon</div>
-                    <span>Próximamente</span>
+                    <span class="txt-coming-soon">Próximamente</span>
                 </div>
                 <div class="placeholder-card">
                     <div class="placeholder-icon">icon</div>
-                    <span>Próximamente</span>
+                    <span class="txt-coming-soon">Próximamente</span>
                 </div>
                 <div class="placeholder-card">
                     <div class="placeholder-icon">icon</div>
-                    <span>Próximamente</span>
+                    <span class="txt-coming-soon">Próximamente</span>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p>&copy; 2026 AndaraDevs. Todos los derechos reservados.</p>
+            <p id="txt-footer">&copy; 2026 AndaraDevs. Todos los derechos reservados.</p>
         </footer>
     </div>
 
+    <script>
+        const translations = {
+            es: {
+                subtitle: "Soluciones Móviles y Desarrollo de Apps",
+                sectionTitle: "Nuestras Aplicaciones",
+                appDesc: "Analítica y estadísticas de béisbol de vanguardia. Simulaciones avanzadas y métricas de rendimiento.",
+                comingSoon: "Próximamente",
+                footer: "© 2026 AndaraDevs. Todos los derechos reservados."
+            },
+            en: {
+                subtitle: "Mobile Solutions & App Development",
+                sectionTitle: "Our Applications",
+                appDesc: "Cutting-edge baseball analytics & stats. Advanced simulations and performance metrics.",
+                comingSoon: "Coming Soon",
+                footer: "© 2026 AndaraDevs. All rights reserved."
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById('txt-subtitle').textContent = translations[lang].subtitle;
+            document.getElementById('txt-section-title').textContent = translations[lang].sectionTitle;
+            document.getElementById('txt-app-desc').textContent = translations[lang].appDesc;
+            document.getElementById('txt-footer').textContent = translations[lang].footer;
+
+            const comingSoonElems = document.querySelectorAll('.txt-coming-soon');
+            comingSoonElems.forEach(elem => {
+                elem.textContent = translations[lang].comingSoon;
+            });
+
+            document.documentElement.lang = lang;
+        }
+    </script>
 </body>
 </html>
