@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AndaraDevs | Aplicaciones</title>
+    <title>AndaraDevs | Nuestras Aplicaciones</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -41,11 +41,11 @@
             position: relative;
         }
 
-        /* Banner Header */
+        /* Banner Header - panoramica.jpg */
         .banner-container {
             width: 100%;
             height: 220px;
-            background: url('Gemini_Generated_Image_q52op1q52op1q52o.jpg') center/cover no-repeat;
+            background: url('panoramica.jpg') center/cover no-repeat;
             position: relative;
         }
 
@@ -60,10 +60,11 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Foto de perfil - perfil.jpg */
         .profile-img {
             width: 120px;
             height: 120px;
-            border-radius: 20px;
+            border-radius: 50%;
             border: 3px solid var(--accent-cyan);
             box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
             object-fit: cover;
@@ -91,18 +92,17 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .bio-section p.subtitle {
             color: var(--accent-cyan);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             margin-bottom: 0.8rem;
-        }
-
-        .bio-section p.description {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
+            text-transform: uppercase;
         }
 
         /* Apps Section */
@@ -111,72 +111,103 @@
         }
 
         .section-title {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title i {
-            color: var(--accent-cyan);
+            text-align: center;
+            font-weight: 700;
         }
 
         .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 1.5rem;
         }
 
-        /* App Card */
+        /* App Card Destacada */
         .app-card {
             background-color: var(--card-bg);
             border-radius: 16px;
-            padding: 1.2rem;
+            padding: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            gap: 1.5rem;
+            border: 1px solid rgba(0, 242, 254, 0.2);
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
             color: inherit;
         }
 
         .app-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             border-color: var(--accent-cyan);
-            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.15);
+            box-shadow: 0 5px 20px rgba(0, 242, 254, 0.2);
         }
 
+        /* Logo de la App - logo.jpg */
         .app-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
+            width: 90px;
+            height: 90px;
+            border-radius: 16px;
             border: 1px solid rgba(0, 242, 254, 0.3);
             flex-shrink: 0;
-            overflow: hidden;
             object-fit: cover;
         }
 
         .app-info h3 {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
         }
 
         .app-info p {
-            font-size: 0.8rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
-            margin-top: 2px;
+            margin-bottom: 8px;
         }
 
-        .badge-tag {
-            display: inline-block;
-            font-size: 0.65rem;
-            background: rgba(0, 242, 254, 0.1);
+        .app-info .app-link-text {
             color: var(--accent-cyan);
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-top: 5px;
+            font-size: 0.85rem;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
+        /* Placeholder Grid para Próximamente */
+        .future-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .placeholder-card {
+            background-color: rgba(19, 28, 42, 0.5);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 8px;
+        }
+
+        .placeholder-icon {
+            width: 50px;
+            height: 50px;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .placeholder-card span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
         }
 
         /* Footer */
@@ -199,6 +230,10 @@
             .profile-container {
                 margin-top: -45px;
             }
+            .app-card {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -208,7 +243,7 @@
         <div class="banner-container"></div>
 
         <div class="profile-container">
-            <img src="Gemini_Generated_Image_5a5wo85a5wo85a5w.jpg" alt="AndaraDevs Logo" class="profile-img">
+            <img src="perfil.jpg" alt="AndaraDevs Logo" class="profile-img">
             <div class="social-links">
                 <a href="https://instagram.com/AndaraDevs" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://play.google.com/store/apps/details?id=com.app.sabermetricsformlb" target="_blank" title="Google Play Store"><i class="fab fa-google-play"></i></a>
@@ -218,26 +253,44 @@
 
         <div class="bio-section">
             <h1>AndaraDevs</h1>
-            <p class="subtitle">Mobile Solutions & Innovation</p>
-            <p class="description">
-                Desarrollo de aplicaciones móviles especializadas en analítica deportiva, herramientas digitales y soluciones avanzadas para Android.
-            </p>
+            <p class="subtitle">Mobile Solutions & App Development</p>
         </div>
 
         <div class="apps-section">
-            <h2 class="section-title"><i class="fas fa-mobile-screen-button"></i> Mis Aplicaciones</h2>
+            <h2 class="section-title">Nuestras Aplicaciones</h2>
             
             <div class="apps-grid">
-                
                 <a href="https://play.google.com/store/apps/details?id=com.app.sabermetricsformlb" target="_blank" class="app-card">
-                    <img src="Gemini_Generated_Image_5a5wo85a5wo85a5w.jpg" alt="SaberMetrics MLB Logo" class="app-icon">
+                    <img src="logo.jpg" alt="SaberMetrics para MLB Logo" class="app-icon">
                     <div class="app-info">
-                        <h3>SaberMetrics for MLB</h3>
-                        <p>Simulador y métricas analíticas de béisbol con datos en tiempo real.</p>
-                        <span class="badge-tag">Deportes / Google Play</span>
+                        <h3>SaberMetrics para MLB</h3>
+                        <p>Analítica y estadísticas de béisbol de vanguardia. Simulaciones avanzadas y métricas de rendimiento.</p>
+                        <span class="app-link-text">https://play.google.com/store/apps/details?id=com.app.sabermetricsformlb</span>
                     </div>
                 </a>
+            </div>
 
+            <div class="future-grid">
+                <div class="placeholder-card">
+                    <div class="placeholder-icon">icon</div>
+                    <span>Próximamente</span>
+                </div>
+                <div class="placeholder-card">
+                    <div class="placeholder-icon">icon</div>
+                    <span>Próximamente</span>
+                </div>
+                <div class="placeholder-card">
+                    <div class="placeholder-icon">icon</div>
+                    <span>Próximamente</span>
+                </div>
+                <div class="placeholder-card">
+                    <div class="placeholder-icon">icon</div>
+                    <span>Próximamente</span>
+                </div>
+                <div class="placeholder-card">
+                    <div class="placeholder-icon">icon</div>
+                    <span>Próximamente</span>
+                </div>
             </div>
         </div>
 
