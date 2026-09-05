@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AndaraDevs | Innovación Móvil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0f18;
+            --card-bg: #131c2a;
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --text-main: #ffffff;
+            --text-muted: #a0aec0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #0d1522;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.1);
+            position: relative;
+        }
+
+        /* Banner Header */
+        .banner-container {
+            width: 100%;
+            height: 220px;
+            background: url('Gemini_Generated_Image_q52op1q52op1q52o.jpg') center/cover no-repeat;
+            position: relative;
+        }
+
+        /* Profile Photo Overlapping Banner */
+        .profile-container {
+            position: relative;
+            padding: 0 2rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-top: -60px;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            border: 3px solid var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+            object-fit: cover;
+            background-color: var(--card-bg);
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Profile Details */
+        .bio-section {
+            padding: 0 2rem 2rem 2rem;
+            border-bottom: 1px solid #1a2638;
+        }
+
+        .bio-section h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .bio-section p.subtitle {
+            color: var(--accent-cyan);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .bio-section p.description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Apps Section */
+        .apps-section {
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--accent-cyan);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* App Card */
+        .app-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.15);
+        }
+
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #1f2d42, #0d1522);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .app-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid #1a2638;
+        }
+
+        @media (max-width: 600px) {
+            .banner-container {
+                height: 150px;
+            }
+            .profile-img {
+                width: 90px;
+                height: 90px;
+            }
+            .profile-container {
+                margin-top: -45px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="banner-container"></div>
+
+        <div class="profile-container">
+            <img src="Gemini_Generated_Image_5a5wo85a5wo85a5w.jpg" alt="AndaraDevs Logo" class="profile-img">
+            <div class="social-links">
+                <a href="https://instagram.com/AndaraDevs" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://play.google.com/store" target="_blank" title="Google Play Store"><i class="fab fa-google-play"></i></a>
+                <a href="https://github.com/andaradevs" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h1>AndaraDevs</h1>
+            <p class="subtitle">Mobile Solutions & Innovation</p>
+            <p class="description">
+                Desarrollo de aplicaciones móviles especializadas en analítica deportiva, herramientas digitales y soluciones avanzadas para Android.
+            </p>
+        </div>
+
+        <div class="apps-section">
+            <h2 class="section-title"><i class="fas fa-mobile-screen-button"></i> Mis Aplicaciones</h2>
+            
+            <div class="apps-grid">
+                
+                <a href="https://play.google.com/store/apps" target="_blank" class="app-card">
+                    <div class="app-icon">
+                        <span>PRO<br>STATS</span>
+                    </div>
+                    <div class="app-info">
+                        <h3>SaberMetrics MLB</h3>
+                        <p>Analítica y simulación Monte Carlo para MLB.</p>
+                        <span class="badge-tag">Deportes</span>
+                    </div>
+                </a>
+
+                </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 AndaraDevs. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
