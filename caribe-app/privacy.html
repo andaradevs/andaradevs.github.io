@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaribbeanMetrics - Legal & Privacy</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #f8fafc;
+      --muted-color: #94a3b8;
+      --accent-color: #0284c7;
+      --accent-hover: #0369a1;
+      --border-color: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .title-group h1 {
+      font-size: 1.8rem;
+      color: var(--text-color);
+    }
+
+    .title-group p {
+      color: var(--muted-color);
+      font-size: 0.9rem;
+    }
+
+    .lang-switcher button {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .lang-switcher button.active, .lang-switcher button:hover {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--muted-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+    }
+
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    .section-block {
+      margin-bottom: 20px;
+    }
+
+    .section-block h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .section-block p {
+      color: var(--muted-color);
+      font-size: 0.95rem;
+      text-align: justify;
+    }
+
+    .footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="title-group">
+        <h1 id="app-title">CaribbeanMetrics</h1>
+        <p id="last-updated">Última actualización: 3 de julio de 2026</p>
+      </div>
+
+      <div class="lang-switcher">
+        <button id="btn-es" class="active" onclick="setLanguage('es')">ES</button>
+        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button id="tab-privacy" class="tab-btn active" onclick="switchTab('privacy')">Política de Privacidad</button>
+      <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Términos de Servicio</button>
+    </div>
+
+    <!-- PRIVACY POLICY CONTENT -->
+    <div id="privacy-content" class="content-section active"></div>
+
+    <!-- TERMS OF SERVICE CONTENT -->
+    <div id="terms-content" class="content-section"></div>
+
+    <div class="footer">
+      <p>© 2026 Andara Devs. <span id="rights-text">Todos los derechos reservados.</span></p>
+    </div>
+  </div>
+
+  <script>
+    let currentLang = 'es';
+    let currentTab = 'privacy';
+
+    const data = {
+      es: {
+        lastUpdated: "Última actualización: 3 de julio de 2026",
+        rights: "Todos los derechos reservados.",
+        tabs: { privacy: "Política de Privacidad", terms: "Términos de Servicio" },
+        privacy: [
+          { title: "1. Información que Recopilamos", content: "La Aplicación CaribbeanMetrics está diseñada para ser un simulador sabermétrico y, como tal, minimiza la recopilación de datos personales. Recopilamos información de uso no personal (datos anónimos sobre cómo interactúa con la Aplicación), datos de simulaciones (almacenados localmente en su dispositivo a través de AsyncStorage, no transmitidos a servidores), e información de autenticación opcional (nombre de usuario, correo electrónico, identificador único, almacenados de forma segura)." },
+          { title: "2. Cómo Utilizamos su Información", content: "Utilizamos la información recopilada para proporcionar y mejorar la Aplicación, realizar análisis interno y estadístico (información agregada y anónima), personalizar su experiencia (preferencias de idioma y tema), y proteger la seguridad e integridad de la Aplicación." },
+          { title: "3. Compartir su Información y Publicidad de Terceros", content: "No vendemos, alquilamos ni compartimos su información personal con terceros, excepto en circunstancias específicas: publicidad de terceros (Google AdMob puede recopilar datos anónimos para personalizar anuncios), proveedores de servicios (obligados contractualmente a proteger su información), cumplimiento legal (si así lo exige la ley), y transferencias comerciales (en caso de fusión o adquisición). Las compras dentro de la aplicación son procesadas por las plataformas correspondientes y RevenueCat." },
+          { title: "4. Fuentes de Datos Externos", content: "La Aplicación obtiene datos de fuentes públicas de las ligas invernales —incluyendo LVBP, LIDOM, LBPRC y LMP— y de Open-Meteo Weather API (datos meteorológicos para simulaciones). Esta información es de dominio público y se utiliza únicamente para alimentar las simulaciones." },
+          { title: "5. Privacidad de los Menores", content: "Nuestra Aplicación no está dirigida a niños menores de 13 años. No recopilamos a sabiendas información de identificación personal de menores. Si descubrimos que un menor nos ha proporcionado datos personales, los eliminaremos de inmediato." },
+          { title: "6. Seguridad de los Datos", content: "Implementamos medidas de seguridad técnicas y organizativas: cifrado HTTPS para las comunicaciones con APIs externas, almacenamiento local de los datos de la aplicación, almacenamiento seguro de credenciales mediante expo-secure-store y controles de acceso proporcionados por las plataformas de anuncios y compras integradas." },
+          { title: "7. Sus Derechos", content: "Dependiendo de su jurisdicción, usted puede tener derechos de acceso (solicitar una copia de su información personal), rectificación (solicitar corrección de información inexacta), y eliminación (solicitar la eliminación de su información personal de nuestros registros)." },
+          { title: "8. Cambios a esta Política de Privacidad", content: "Podemos actualizar nuestra Política de Privacidad de vez en cuando. Le notificaremos cualquier cambio publicando la nueva Política en esta página y actualizando la fecha de entrada en vigor. Se le aconseja revisar esta Política periódicamente para cualquier cambio." },
+          { title: "9. Contacto", content: "Si tiene alguna pregunta o inquietud sobre esta Política de Privacidad o nuestras prácticas de datos, por favor contáctenos en: Andara Devs, Correo electrónico de soporte: andaradevs@gmail.com" }
+        ],
+        terms: [
+          { title: "1. Aceptación de los Términos", content: "Al descargar, instalar o utilizar la Aplicación, usted reconoce que ha leído, entendido y aceptado estos Términos, así como nuestra Política de Privacidad. Estos Términos constituyen un acuerdo legal vinculante entre usted y Andara Devs. Si no está de acuerdo con estos Términos, no utilice la Aplicación." },
+          { title: "2. Uso de la Aplicación", content: "La Aplicación CaribbeanMetrics se proporciona únicamente para su uso personal y no comercial. Usted acepta no utilizar la Aplicación para ningún propósito ilegal o prohibido por estos Términos. La Aplicación utiliza datos de fuentes públicas de las ligas invernales del Caribe y de Open-Meteo Weather API, así como algoritmos de simulación (Monte Carlo) para generar predicciones. Si bien nos esforzamos por la precisión, no garantizamos la exactitud, integridad o fiabilidad de las predicciones, estadísticas o cualquier otra información proporcionada. Algunas funciones premium pueden requerir una compra dentro de la aplicación, procesada por la plataforma correspondiente y RevenueCat." },
+          { title: "2.2. Exención de Responsabilidad sobre Apuestas y Juego", content: "CaribbeanMetrics es una herramienta strictly informativa, estadística y de entretenimiento. La Aplicación no es una plataforma de apuestas, no gestiona dinero real ni fomenta el juego de azar. El usuario es el único responsable del uso que dé a los datos generados por el simulador. No nos hacemos responsables de pérdidas financieras o decisiones de apuestas tomadas por el usuario basadas en los resultados de las simulaciones. Las predicciones son solo estimaciones y no deben considerarse como consejos de apuestas o financieros." },
+          { title: "2.3. Restricciones de Uso", content: "Usted acepta no modificar, adaptar, traducir, realizar ingeniería inversa, descompilar o desensamblar cualquier parte de la Aplicación. No utilizará la Aplicación de forma que pueda dañar, deshabilitar, sobrecargar o deteriorar nuestros servidores o redes. No intentará obtener acceso no autorizado a ninguna parte de la Aplicación, otras cuentas, sistemas informáticos o redes conectadas. No utilizará la Aplicación para actividades comerciales sin consentimiento previo por escrito." },
+          { title: "3. Propiedad Intelectual", content: "Todos los derechos, títulos e intereses en y para la Aplicación, incluyendo todos los derechos de autor, marcas comerciales, secretos comerciales y otros derechos de propiedad intelectual, son propiedad de Andara Devs o sus licenciantes. Estos Términos no le otorgan ningún derecho sobre la Aplicación o su contenido, excepto el derecho limitado a usarla de acuerdo con estos Términos." },
+          { title: "4. Contenido de Terceros y Enlaces", content: "La Aplicación puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por Andara Devs. No tenemos control ni asumimos responsabilidad por el contenido, las políticas de privacidad o las prácticas de los sitios web o servicios de terceros." },
+          { title: "5. Exclusión de Garantías", content: "LA APLICACIÓN SE PROPORCIONA 'TAL CUAL' Y 'SEGÚN DISPONIBILIDAD', SIN GARANTÍAS DE NINGÚN TIPO, YA SEAN EXPRESAS O IMPLÍCIPAS. ANDARA DEVS NO GARANTIZA QUE LA APLICACIÓN FUNCIONARÁ SIN INTERRUPCIONES, SERÁ SEGURA O ESTARÁ LIBRE DE ERRORES." },
+          { title: "6. Limitación de Responsabilidad", content: "EN NINGÚN CASO ANDARA DEVS, SUS DIRECTORES, EMPLEADOS O SOCIOS SERÁN RESPONSABLES DE NINGÚN DAÑO INDIRECTO, INCIDENTAL, ESPECIAL, CONSECUENTE O PUNITIVO, INCLUYENDO, SIN LIMITACIÓN, PÉRDIDA DE BENEFICIOS, DATOS O USO, RESULTANTES DE SU ACCESO O USO O INCAPACIDAD DE ACCEDER O USAR LA APLICACIÓN." },
+          { title: "7. Indemnización", content: "Usted acepta defender, indemnizar y eximir de responsabilidad a Andara Devs de y contra cualquier reclamo, daño, obligación, pérdida, responsabilidad o costo resultantes de o que surjan de su uso y acceso a la Aplicación, o por un incumplimiento de estos Términos." },
+          { title: "8. Cambios en los Términos", content: "Nos reservamos el derecho, a nuestra entera discreción, de modificar o reemplazar estos Términos en cualquier momento. Al continuar accediendo o utilizando nuestra Aplicación después de que esas revisiones entren en vigor, usted acepta estar sujeto a los términos revisados." },
+          { title: "9. Ley Aplicable", content: "Estos Términos se regirán e interpretarán de acuerdo con las leyes del país/estado de residencia de la marca principal de desarrollo Andara Devs, sin tener en cuenta sus disposiciones sobre conflictos de leyes." },
+          { title: "10. Contacto", content: "Si tiene alguna pregunta sobre estos Términos, por favor contáctenos en: Andara Devs, Correo electrónico de soporte: andaradevs@gmail.com" }
+        ]
+      },
+      en: {
+        lastUpdated: "Last Updated: July 3, 2026",
+        rights: "All rights reserved.",
+        tabs: { privacy: "Privacy Policy", terms: "Terms of Service" },
+        privacy: [
+          { title: "1. Information We Collect", content: "CaribbeanMetrics is designed as a sabermetric simulator and, as such, minimizes personal data collection. We collect non-personal usage information (anonymous data about how you interact with the Application), simulation data (stored locally on your device via AsyncStorage, not transmitted to servers), and optional authentication information (username, email, unique identifier, stored securely)." },
+          { title: "2. How We Use Your Information", content: "We use the collected information to provide and improve the Application, conduct internal and statistical analysis (aggregated and anonymous information), personalize your experience (language and theme preferences), and protect the security and integrity of the Application." },
+          { title: "3. Sharing Your Information and Third-Party Advertising", content: "We do not sell, rent, or share your personal information with third parties, except in specific circumstances: third-party advertising (Google AdMob may collect anonymous data to personalize ads), service providers (contractually obligated to protect your information), legal compliance (if required by law), and business transfers (in case of merger or acquisition). In-app purchases are processed by the applicable platforms and RevenueCat." },
+          { title: "4. External Data Sources", content: "The Application obtains data from public winter-league sources—including LVBP, LIDOM, LBPRC and LMP—and Open-Meteo Weather API (weather data for simulations). This information is in the public domain and is used solely to power simulations." },
+          { title: "5. Children's Privacy", content: "Our Application is not directed to children under 13 years old. We do not knowingly collect personal identification information from minors. If we discover that a minor has provided us with personal data, we will delete it immediately." },
+          { title: "6. Data Security", content: "We implement technical and organizational security measures: HTTPS encryption for communications with external APIs, local storage of application data, secure credential storage via expo-secure-store, and access controls provided by the advertising and in-app purchase platforms." },
+          { title: "7. Your Rights", content: "Depending on your jurisdiction, you may have the following rights: access (request a copy of your personal information), rectification (request correction of inaccurate information), and deletion (request deletion of your personal information from our records)." },
+          { title: "8. Changes to This Privacy Policy", content: "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Policy on this page and updating the effective date. You are advised to review this Policy periodically for any changes." },
+          { title: "9. Contact", content: "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at: Andara Devs, Support Email: andaradevs@gmail.com" }
+        ],
+        terms: [
+          { title: "1. Acceptance of Terms", content: "By downloading, installing, or using the Application, you acknowledge that you have read, understood, and accepted these Terms, as well as our Privacy Policy. These Terms constitute a binding legal agreement between you and Andara Devs. If you do not agree with these Terms, do not use the Application." },
+          { title: "2. Use of the Application", content: "CaribbeanMetrics is provided solely for your personal, non-commercial use. You agree not to use the Application for any illegal purpose or prohibited by these Terms. The Application uses data from public Caribbean winter-league sources and Open-Meteo Weather API, as well as Monte Carlo simulation algorithms to generate predictions. While we strive for accuracy, we do not guarantee the accuracy, completeness, or reliability of the predictions, statistics, or any other information provided. Some premium features may require an in-app purchase processed by the applicable platform and RevenueCat." },
+          { title: "2.2. Disclaimer on Betting and Gambling", content: "CaribbeanMetrics is strictly an informational, statistical, and entertainment tool. The Application is not a betting platform, does not manage real money, and does not encourage gambling. The user is solely responsible for the use they make of the data generated by the simulator. We are not responsible for financial losses or betting decisions made by the user based on simulation results. Predictions are only estimates and should not be considered as betting or financial advice." },
+          { title: "2.3. Restrictions on Use", content: "You agree not to modify, adapt, translate, reverse engineer, decompile, or disassemble any part of the Application. You will not use the Application in any way that could damage, disable, overload, or impair our servers or networks. You will not attempt to gain unauthorized access to any part of the Application, other accounts, computer systems, or networks connected to our servers. You will not use the Application for commercial activities without our prior written consent." },
+          { title: "3. Intellectual Property", content: "All rights, titles, and interests in and to the Application, including all copyrights, trademarks, trade secrets, and other intellectual property rights, are owned by Andara Devs or its licensors. These Terms do not grant you any rights over the Application or its content, except the limited right to use it in accordance with these Terms." },
+          { title: "4. Third-Party Content and Links", content: "The Application may contain links to websites or services of third parties that are not owned or controlled by Andara Devs. We have no control over and assume no responsibility for the content, privacy policies, or practices of third-party websites or services." },
+          { title: "5. Disclaimer of Warranties", content: "THE APPLICATION IS PROVIDED 'AS IS' AND 'AS AVAILABLE', WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. ANDARA DEVS DOES NOT GUARANTEE THAT THE APPLICATION WILL OPERATE WITHOUT INTERRUPTIONS, WILL BE SECURE, OR WILL BE ERROR-FREE." },
+          { title: "6. Limitation of Liability", content: "IN NO EVENT SHALL ANDARA DEVS, ITS DIRECTORS, EMPLOYEES, OR PARTNERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING, WITHOUT LIMITATION, LOSS OF PROFITS, DATA, OR USE, RESULTING FROM YOUR ACCESS OR USE OR INABILITY TO ACCESS OR USE THE APPLICATION." },
+          { title: "7. Indemnification", content: "You agree to defend, indemnify, and hold harmless Andara Devs from and against any claim, damage, obligation, loss, liability, or cost resulting from or arising out of your use and access to the Application, or by a breach of these Terms." },
+          { title: "8. Changes to Terms", content: "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Application after those revisions become effective, you agree to be bound by the revised Terms." },
+          { title: "9. Governing Law", content: "These Terms shall be governed by and interpreted in accordance with the laws of the country/state of residence of Andara Devs's main development brand, without regard to its conflict of law provisions." },
+          { title: "10. Contact", content: "If you have any questions about these Terms, please contact us at: Andara Devs, Support Email: andaradevs@gmail.com" }
+        ]
+      }
+    };
+
+    function renderContent() {
+      const langData = data[currentLang];
+      
+      document.getElementById('last-updated').innerText = langData.lastUpdated;
+      document.getElementById('rights-text').innerText = langData.rights;
+      document.getElementById('tab-privacy').innerText = langData.tabs.privacy;
+      document.getElementById('tab-terms').innerText = langData.tabs.terms;
+
+      // Render Privacy
+      const privacyContainer = document.getElementById('privacy-content');
+      privacyContainer.innerHTML = langData.privacy.map(sec => `
+        <div class="section-block">
+          <h3>${sec.title}</h3>
+          <p>${sec.content}</p>
+        </div>
+      `).join('');
+
+      // Render Terms
+      const termsContainer = document.getElementById('terms-content');
+      termsContainer.innerHTML = langData.terms.map(sec => `
+        <div class="section-block">
+          <h3>${sec.title}</h3>
+          <p>${sec.content}</p>
+        </div>
+      `).join('');
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      renderContent();
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById('tab-privacy').classList.toggle('active', tab === 'privacy');
+      document.getElementById('tab-terms').classList.toggle('active', tab === 'terms');
+      
+      document.getElementById('privacy-content').classList.toggle('active', tab === 'privacy');
+      document.getElementById('terms-content').classList.toggle('active', tab === 'terms');
+    }
+
+    // Initial Render
+    renderContent();
+  </script>
+</body>
+</html>
