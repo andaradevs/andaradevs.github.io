@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -158,18 +158,18 @@
     <div class="header">
       <div class="title-group">
         <h1 id="app-title">SaberMetrics for MLB</h1>
-        <p id="last-updated">Last Updated: September 30, 2026</p>
+        <p id="last-updated">Última actualización: 30 de septiembre de 2026</p>
       </div>
 
       <div class="lang-switcher">
-        <button id="btn-es" onclick="setLanguage('es')">ES</button>
-        <button id="btn-en" class="active" onclick="setLanguage('en')">EN</button>
+        <button id="btn-es" class="active" onclick="setLanguage('es')">ES</button>
+        <button id="btn-en" onclick="setLanguage('en')">EN</button>
       </div>
     </div>
 
     <div class="tabs">
-      <button id="tab-privacy" class="tab-btn active" onclick="switchTab('privacy')">Privacy Policy</button>
-      <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Terms of Service</button>
+      <button id="tab-privacy" class="tab-btn active" onclick="switchTab('privacy')">Política de Privacidad</button>
+      <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Términos de Servicio</button>
     </div>
 
     <!-- PRIVACY POLICY CONTENT -->
@@ -179,13 +179,12 @@
     <div id="terms-content" class="content-section"></div>
 
     <div class="footer">
-      <p>© 2026 Andara Devs. <span id="rights-text">All rights reserved.</span></p>
+      <p>© 2026 Andara Devs. <span id="rights-text">Todos los derechos reservados.</span></p>
     </div>
   </div>
 
   <script>
-    // Idioma predeterminado en inglés
-    let currentLang = 'en';
+    let currentLang = 'es';
     let currentTab = 'privacy';
 
     const data = {
@@ -326,8 +325,9 @@
       document.getElementById('terms-content').classList.toggle('active', tab === 'terms');
     }
 
-    // Inicializar renderizado en inglés
+    // Initial Render
     renderContent();
   </script>
 </body>
 </html>
+
