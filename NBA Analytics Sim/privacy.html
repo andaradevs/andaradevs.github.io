@@ -161,7 +161,6 @@
         <p id="last-updated">Last Updated: September 29, 2026</p>
       </div>
 
-      <!-- Botón activo por defecto en EN -->
       <div class="lang-switcher">
         <button id="btn-es" onclick="setLanguage('es')">ES</button>
         <button id="btn-en" class="active" onclick="setLanguage('en')">EN</button>
@@ -185,7 +184,7 @@
   </div>
 
   <script>
-    // Idioma predeterminado cambiado a inglés ('en')
+    // Configurado en inglés por defecto
     let currentLang = 'en';
     let currentTab = 'privacy';
 
@@ -199,7 +198,7 @@
           { title: "2. Cómo Utilizamos su Información", content: "La aplicación utiliza el historial y las preferencias locales para mostrar simulaciones y personalizar la experiencia. Consulta fuentes externas para obtener calendarios, marcadores, plantillas, estadísticas y, cuando están disponibles, datos de lesiones que alimentan las simulaciones. Google Mobile Ads puede solicitar anuncios y procesar datos técnicos para entregarlos, limitar fraudes y medir su funcionamiento; las opciones de personalización dependen de la plataforma, la configuración y el consentimiento aplicable." },
           { 
             title: "3. Anuncios, compras y proveedores externos", 
-            content: "No vendemos información personal. Google Mobile Ads (Google AdMob) proporciona los formatos publicitarios integrados. Google y sus socios pueden procesar identificadores publicitarios, dirección IP, información del dispositivo y de la aplicación, interacciones con anuncios, diagnósticos y señales de prevención de fraude para mostrar y medir anuncios y prevenir abusos; los datos concretos dependen de la configuración y de las opciones de privacidad del dispositivo o la región. RevenueCat puede procesar un identificador de usuario anónimo de la aplicación, información de compras y transacciones, recibos o derechos de acceso y datos de diagnóstico para validar, sincronizar y restaurar compras. Google Play procesa los pagos en Android; NBA Analytics Sim não recibe ni almacena los datos de la tarjeta. Cada proveedor trata los datos conforme a sus propias políticas.",
+            content: "No vendemos información personal. Google Mobile Ads (Google AdMob) proporciona los formatos publicitarios integrados. Google y sus socios pueden procesar identificadores publicitarios, dirección IP, información del dispositivo y de la aplicación, interacciones con anuncios, diagnósticos y señales de prevención de fraude para mostrar y medir anuncios y prevenir abusos; los datos concretos dependen de la configuración y de las opciones de privacidad del dispositivo o la región. RevenueCat puede procesar un identificador de usuario anónimo de la aplicación, información de compras y transacciones, recibos o derechos de acceso y datos de diagnóstico para validar, sincronizar y restaurar compras. Google Play procesa los pagos en Android; NBA Analytics Sim no recibe ni almacena los datos de la tarjeta. Cada proveedor trata los datos conforme a sus propias políticas.",
             links: [
               { text: "Política de privacidad de Google (incluido AdMob)", url: "https://policies.google.com/privacy" },
               { text: "Cómo usa Google los datos de apps de terceros", url: "https://policies.google.com/technologies/partner-sites" },
@@ -214,7 +213,7 @@
           { title: "9. Contacto", content: "Si tiene alguna pregunta o inquietud sobre esta Política de Privacidad o nuestras prácticas de datos, por favor contáctenos en: Andara Devs, Correo electrónico de soporte: andaradevs@gmail.com" }
         ],
         terms: [
-          { title: "1. Aceptación de los Términos", content: "Al descargar, instalar o utilizar la Aplicación, usted reconoce que ha leído, entendido y aceptado estos Términos, así como nuestra Política de Privacidad. Estos Términos constituyen un acuerdo legal vinculante entre usted y Andara Devs. Si no está de acuerdo con estos Términos, no utilice la Aplicación." },
+          { title: "1. Acceptance of Terms", content: "Al descargar, instalar o utilizar la Aplicación, usted reconoce que ha leído, entendido y aceptado estos Términos, así como nuestra Política de Privacidad. Estos Términos constituyen un acuerdo legal vinculante entre usted y Andara Devs. Si no está de acuerdo con estos Términos, no utilice la Aplicación." },
           { title: "2. Uso de la Aplicación", content: "La Aplicación NBA Analytics Sim se proporciona únicamente para su uso personal y no comercial. Usted acepta no utilizar la Aplicación para ningún propósito ilegal o prohibido por estos Términos. La Aplicación utiliza datos de NBA Stats y ESPN, así como algoritmos de simulación (Monte Carlo) para generar predicciones. Si bien nos esforzamos por la precisión, no garantizamos la exactitud, integridad o fiabilidad de las predicciones, estadísticas o cualquier otra información proporcionada." },
           { title: "2.2. Exención de Responsabilidad sobre Apuestas y Juego", content: "NBA Analytics Sim es una herramienta estrictamente informativa, estadística y de entretenimiento. La Aplicación no es una plataforma de apuestas, no gestiona dinero real ni fomenta el juego de azar. El usuario es el único responsable del uso que dé a los datos generados por el simulador. No nos hacemos responsables de pérdidas financieras o decisiones de apuestas tomadas por el usuario basadas en los resultados de las simulaciones. Las predicciones son solo estimaciones y no deben considerarse como consejos de apuestas o financieros." },
           { title: "2.3. Restricciones de Uso", content: "Usted acepta no modificar, adaptar, traducir, realizar ingeniería inversa, descompilar o desensamblar cualquier parte de la Aplicación. No utilizará la Aplicación de forma que pueda dañar, deshabilitar, sobrecargar o deteriorar nuestros servidores o redes. No intentará obtener acceso no autorizado a ninguna parte de la Aplicación, otras cuentas, sistemas informáticos o redes conectadas. No utilizará la Aplicación para actividades comerciales sin consentimiento previo por escrito." },
@@ -269,7 +268,7 @@
         terms: [
           { title: "1. Acceptance of Terms", content: "By downloading, installing, or using the Application, you acknowledge that you have read, understood, and accepted these Terms, as well as our Privacy Policy. These Terms constitute a binding legal agreement between you and Andara Devs. If you do not agree with these Terms, do not use the Application." },
           { title: "2. Use of the Application", content: "NBA Analytics Sim is provided solely for your personal, non-commercial use. You agree not to use the Application for any illegal purpose or prohibited by these Terms. The Application uses data from NBA Stats and ESPN, as well as simulation algorithms (Monte Carlo) to generate predictions. While we strive for accuracy, we do not guarantee the accuracy, completeness, or reliability of the predictions, statistics, or any other information provided." },
-          { title: "2.2. Disclaimer on Betting and Gambling", content: "NBA Analytics Sim is strictly an informational, statistical, and entertainment tool. The Application is not a betting platform, does not manage real money, and does not encourage gambling. The user is solely responsible for the use they make of the data generated by the simulator. We are not responsible for financial losses or betting decisions made by the user based on simulation results. Predictions are only estimates and should not be considered as betting or financial advice." },
+          { title: "2.2. Disclaimer on Betting and Gambling", content: "NBA Analytics Sim is strictly an informational, statistical, and entertainment tool. The Application is not a betting platform, does not manage real money, and does not encourage gambling. The user is solely responsible for the use they make of the data generated by the simulator. No us hacemos responsables de pérdidas financieras o decisiones de apuestas tomadas por el usuario basadas en los resultados de las simulaciones. Las predicciones son solo estimaciones y no deben considerarse como consejos de apuestas o financieros." },
           { title: "2.3. Restrictions on Use", content: "You agree not to modify, adapt, translate, reverse engineer, decompile, or disassemble any part of the Application. You will not use the Application in any way that could damage, disable, overload, or impair our servers or networks. You will not attempt to gain unauthorized access to any part of the Application, other accounts, computer systems, or networks connected to our servers. You will not use the Application for commercial activities without our prior written consent." },
           { 
             title: "2.4. Advertising", 
