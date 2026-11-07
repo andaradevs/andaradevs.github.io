@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -158,18 +158,18 @@
     <div class="header">
       <div class="title-group">
         <h1 id="app-title">SaberMetrics for MLB</h1>
-        <p id="last-updated">Última actualización: 30 de septiembre de 2026</p>
+        <p id="last-updated">Last Updated: September 30, 2026</p>
       </div>
 
       <div class="lang-switcher">
-        <button id="btn-es" class="active" onclick="setLanguage('es')">ES</button>
-        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+        <button id="btn-es" onclick="setLanguage('es')">ES</button>
+        <button id="btn-en" class="active" onclick="setLanguage('en')">EN</button>
       </div>
     </div>
 
     <div class="tabs">
-      <button id="tab-privacy" class="tab-btn active" onclick="switchTab('privacy')">Política de Privacidad</button>
-      <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Términos de Servicio</button>
+      <button id="tab-privacy" class="tab-btn active" onclick="switchTab('privacy')">Privacy Policy</button>
+      <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Terms of Service</button>
     </div>
 
     <!-- PRIVACY POLICY CONTENT -->
@@ -179,12 +179,13 @@
     <div id="terms-content" class="content-section"></div>
 
     <div class="footer">
-      <p>© 2026 Andara Devs. <span id="rights-text">Todos los derechos reservados.</span></p>
+      <p>© 2026 Andara Devs. <span id="rights-text">All rights reserved.</span></p>
     </div>
   </div>
 
   <script>
-    let currentLang = 'es';
+    // Configurado en inglés por defecto
+    let currentLang = 'en';
     let currentTab = 'privacy';
 
     const data = {
@@ -271,7 +272,7 @@
           { title: "3. Intellectual Property", content: "All rights, titles, and interests in and to the Application, including all copyrights, trademarks, trade secrets, and other intellectual property rights, are owned by Andara Devs or its licensors. These Terms do not grant you any rights over the Application or its content, except the limited right to use it in accordance with these Terms." },
           { title: "4. Third-Party Content and Links", content: "The Application may contain links to websites or services of third parties that are not owned or controlled by Andara Devs. We have no control over and assume no responsibility for the content, privacy policies, or practices of third-party websites or services." },
           { title: "5. Disclaimer of Warranties", content: "THE APPLICATION IS PROVIDED 'AS IS' AND 'AS AVAILABLE', WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. ANDARA DEVS DOES NOT GUARANTEE THAT THE APPLICATION WILL OPERATE WITHOUT INTERRUPTIONS, WILL BE SECURE, OR WILL BE ERROR-FREE." },
-          { title: "6. Limitation of Liability", content: "IN NO EVENT SHALL ANDARA DEVS, ITS DIRECTORS, EMPLOYEES, OR PARTNERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING, WITHOUT LIMITATION, LOSS OF PROFITS, DATA, OR USE, RESULTING FROM YOUR ACCESS OR USE OR INABILITY TO ACCESS OR USE THE APPLICATION." },
+          { title: "6. Limitation of Liability", content: "IN NO EVENT SHALL ANDARA DEVS, ITS DIRECTORES, EMPLOYEES, OR PARTNERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING, WITHOUT LIMITATION, LOSS OF PROFITS, DATA, OR USE, RESULTING FROM YOUR ACCESS OR USE OR INCAPACIDAD DE ACCEDER O USAR LA APLICACIÓN." },
           { title: "7. Indemnification", content: "You agree to defend, indemnify, and hold harmless Andara Devs from and against any claim, damage, obligation, loss, liability, or cost resulting from or arising out of your use and access to the Application, or by a breach of these Terms." },
           { title: "8. Changes to Terms", content: "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Application after those revisions become effective, you agree to be bound by the revised Terms." },
           { title: "9. Governing Law", content: "These Terms shall be governed by and interpreted in accordance with the laws of the country/state of residence of Andara Devs's main development brand, without regard to its conflict of law provisions." },
@@ -330,4 +331,3 @@
   </script>
 </body>
 </html>
-
