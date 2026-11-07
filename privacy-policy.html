@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NBA Analytics Sim - Legal & Privacy</title>
+  <title>SaberMetrics for MLB - Legal & Privacy</title>
   <style>
     :root {
       --bg-color: #0f172a;
@@ -157,10 +157,11 @@
   <div class="container">
     <div class="header">
       <div class="title-group">
-        <h1 id="app-title">NBA Analytics Sim</h1>
-        <p id="last-updated">Last Updated: September 29, 2026</p>
+        <h1 id="app-title">SaberMetrics for MLB</h1>
+        <p id="last-updated">Last Updated: September 30, 2026</p>
       </div>
 
+      <!-- Botón EN activo por defecto -->
       <div class="lang-switcher">
         <button id="btn-es" onclick="setLanguage('es')">ES</button>
         <button id="btn-en" class="active" onclick="setLanguage('en')">EN</button>
@@ -184,166 +185,34 @@
   </div>
 
   <script>
-    // Inicializado directamente en inglés
+    // Idioma predeterminado configurado en inglés ('en')
     let currentLang = 'en';
     let currentTab = 'privacy';
 
     const data = {
       es: {
-        lastUpdated: "Última actualización: 29 de septiembre de 2026",
+        lastUpdated: "Última actualización: 30 de septiembre de 2026",
         rights: "Todos los derechos reservados.",
         tabs: { privacy: "Política de Privacidad", terms: "Términos de Servicio" },
         privacy: [
-          { title: "1. Información que Recopilamos", content: "NBA Analytics Sim es una aplicación de estadísticas y simulación de partidos de baloncesto NBA. No requiere cuenta ni inicio de sesión. El historial de simulaciones y las preferencias de idioma y tema se guardan localmente en el dispositivo; no mantenemos una base de datos propia de cuentas. Al consultar datos deportivos, cargar anuncios o utilizar compras integradas, el dispositivo se comunica con proveedores externos, que pueden recibir datos técnicos de conexión como la dirección IP y datos del dispositivo o de la solicitud. Google Mobile Ads está integrado para banners e interstitials. RevenueCat se utiliza en las versiones compatibles para presentar opciones de compra, validar compras y sincronizar el acceso Pro." },
-          { title: "2. Cómo Utilizamos su Información", content: "La aplicación utiliza el historial y las preferencias locales para mostrar simulaciones y personalizar la experiencia. Consulta fuentes externas para obtener calendarios, marcadores, plantillas, estadísticas y, cuando están disponibles, datos de lesiones que alimentan las simulaciones. Google Mobile Ads puede solicitar anuncios y procesar datos técnicos para entregarlos, limitar fraudes y medir su funcionamiento; las opciones de personalización dependen de la plataforma, la configuración y el consentimiento aplicable." },
+          { title: "1. Información que Recopilamos", content: "La Aplicación SaberMetrics for MLB está diseñada para ser un simulador sabermétrico y, como tal, minimiza la recopilación de datos personales. Recopilamos información de uso no personal (datos anónimos sobre cómo interactúa con la Aplicación), datos de simulaciones (almacenados localmente en su dispositivo a través de AsyncStorage, no transmitidos a servidores), e información de autenticación opcional (nombre de usuario, correo electrónico, identificador único, almacenados de forma segura)." },
+          { title: "2. Cómo Utilizamos su Información", content: "Utilizamos la información recopilada para proporcionar y mejorar la Aplicación, realizar análisis interno y estadístico (información agregada y anónima), personalizar su experiencia (preferencias de idioma y tema), y proteger la seguridad e integridad de la Aplicación." },
           { 
-            title: "3. Anuncios, compras y proveedores externos", 
-            content: "No vendemos información personal. Google Mobile Ads (Google AdMob) proporciona los formatos publicitarios integrados. Google y sus socios pueden procesar identificadores publicitarios, dirección IP, información del dispositivo y de la aplicación, interacciones con anuncios, diagnósticos y señales de prevención de fraude para mostrar y medir anuncios y prevenir abusos; los datos concretos dependen de la configuración y de las opciones de privacidad del dispositivo o la región. RevenueCat puede procesar un identificador de usuario anónimo de la aplicación, información de compras y transacciones, recibos o derechos de acceso y datos de diagnóstico para validar, sincronizar y restaurar compras. Google Play procesa los pagos en Android; NBA Analytics Sim no recibe ni almacena los datos de la tarjeta. Cada proveedor trata los datos conforme a sus propias políticas.",
+            title: "3. Servicios de Terceros: Publicidad y Compras Integradas", 
+            content: "No vendemos ni alquilamos su información personal. La versión gratuita muestra anuncios servidos por Google AdMob. La Aplicación solicita anuncios no personalizados; aun así, Google puede tratar datos técnicos y publicitarios, como dirección IP, identificadores del dispositivo o de publicidad, interacciones con anuncios y datos de diagnóstico, para servirlos, limitar su frecuencia, medir su rendimiento y proteger sus servicios. Esta solicitud no significa que no se procesen datos ni sustituye los consentimientos exigidos por la legislación aplicable. Para gestionar las compras y el acceso a Premium Pro usamos RevenueCat, que puede procesar un identificador de comprador (incluido uno anónimo), información del producto, transacciones, estado de compra y datos técnicos necesarios para validar y restaurar compras. El pago se procesa mediante la tienda de aplicaciones correspondiente (Google Play o Apple App Store); no recibimos los datos completos de su tarjeta de pago. Google, RevenueCat y las tiendas tratan datos conforme a sus propias políticas de privacidad. También podemos divulgar información cuando lo exija la ley o en una transferencia comercial, como una fusión o adquisición.",
             links: [
-              { text: "Política de privacidad de Google (incluido AdMob)", url: "https://policies.google.com/privacy" },
-              { text: "Cómo usa Google los datos de apps de terceros", url: "https://policies.google.com/technologies/partner-sites" },
-              { text: "Política de privacidad de RevenueCat", url: "https://www.revenuecat.com/privacy" }
+              { text: "Política de privacidad de Google AdMob", url: "https://policies.google.com/privacy" },
+              { text: "Política de privacidad de RevenueCat", url: "https://www.revenuecat.com/privacy/" }
             ]
           },
-          { title: "4. Fuentes de Datos Externos", content: "La aplicación consulta NBA Stats, los servicios públicos de ESPN y NBA CDN para obtener estadísticas, plantillas, calendarios, lesiones y resultados. Para determinados calendarios puede usar BALLDONTLIE cuando hay una clave configurada en el servidor; si una fuente no está disponible, puede recurrir a otra o a la caché local. Los datos deportivos alimentan las simulaciones y se guardan en caché localmente. Cada proveedor externo puede procesar datos técnicos de las solicitudes conforme a sus propias políticas." },
+          { title: "4. Fuentes de Datos Externos", content: "La Aplicación obtiene datos de fuentes públicas: MLB StatsAPI (estadísticas de equipos, calendarios, información de lanzadores, resultados) y Open-Meteo Weather API (datos meteorológicos para simulaciones). Esta información es de dominio público y se utiliza únicamente para alimentar las simulaciones." },
           { title: "5. Privacidad de los Menores", content: "Nuestra Aplicación no está dirigida a niños menores de 13 años. No recopilamos a sabiendas información de identificación personal de menores. Si descubrimos que un menor nos ha proporcionado datos personales, los eliminaremos de inmediato." },
-          { title: "6. Seguridad de los Datos", content: "Usamos HTTPS para las comunicaciones con fuentes externas y almacenamos el historial de simulaciones, las preferencias y la caché deportiva en el dispositivo. No almacenamos datos de tarjetas, contraseñas ni cookies de sesión. Los proveedores externos son responsables de las medidas de seguridad aplicables a los datos que reciben a través de sus servicios." },
-          { title: "7. Sus Derechos", content: "Dependiendo de su jurisdicción, puede tener derechos de acceso, rectificación, eliminación, oposición o limitación respecto de los datos personales. Para solicitudes relacionadas con datos que tratemos directamente, contacte a andaradevs@gmail.com. Los datos tratados por Google, RevenueCat, las tiendas de aplicaciones u otras fuentes deben solicitarse también al proveedor correspondiente, conforme a sus políticas." },
+          { title: "6. Seguridad de los Datos", content: "Implementamos medidas de seguridad técnicas y organizativas, incluido HTTPS para las comunicaciones con servicios externos y almacenamiento local de los datos de la aplicación. Los datos gestionados por Google AdMob, RevenueCat y las tiendas de aplicaciones también están sujetos a las medidas y políticas de esos proveedores." },
+          { title: "7. Sus Derechos", content: "Dependiendo de su jurisdicción, usted puede tener derechos de acceso (solicitar una copia de su información personal), rectificación (solicitar corrección de información inexacta), y eliminación (solicitar la eliminación de su información personal de nuestros registros)." },
           { title: "8. Cambios a esta Política de Privacidad", content: "Podemos actualizar nuestra Política de Privacidad de vez en cuando. Le notificaremos cualquier cambio publicando la nueva Política en esta página y actualizando la fecha de entrada en vigor. Se le aconseja revisar esta Política periódicamente para cualquier cambio." },
           { title: "9. Contacto", content: "Si tiene alguna pregunta o inquietud sobre esta Política de Privacidad o nuestras prácticas de datos, por favor contáctenos en: Andara Devs, Correo electrónico de soporte: andaradevs@gmail.com" }
         ],
         terms: [
           { title: "1. Aceptación de los Términos", content: "Al descargar, instalar o utilizar la Aplicación, usted reconoce que ha leído, entendido y aceptado estos Términos, así como nuestra Política de Privacidad. Estos Términos constituyen un acuerdo legal vinculante entre usted y Andara Devs. Si no está de acuerdo con estos Términos, no utilice la Aplicación." },
-          { title: "2. Uso de la Aplicación", content: "La Aplicación NBA Analytics Sim se proporciona únicamente para su uso personal y no comercial. Usted acepta no utilizar la Aplicación para ningún propósito ilegal o prohibido por estos Términos. La Aplicación utiliza datos de NBA Stats y ESPN, así como algoritmos de simulación (Monte Carlo) para generar predicciones. Si bien nos esforzamos por la precisión, no garantizamos la exactitud, integridad o fiabilidad de las predicciones, estadísticas o cualquier otra información proporcionada." },
-          { title: "2.2. Exención de Responsabilidad sobre Apuestas y Juego", content: "NBA Analytics Sim es una herramienta estrictamente informativa, estadística y de entretenimiento. La Aplicación no es una plataforma de apuestas, no gestiona dinero real ni fomenta el juego de azar. El usuario es el único responsable del uso que dé a los datos generados por el simulador. No nos hacemos responsables de pérdidas financieras o decisiones de apuestas tomadas por el usuario basadas en los resultados de las simulaciones. Las predicciones son solo estimaciones y no deben considerarse como consejos de apuestas o financieros." },
-          { title: "2.3. Restricciones de Uso", content: "Usted acepta no modificar, adaptar, traducir, realizar ingeniería inversa, descompilar o desensamblar cualquier parte de la Aplicación. No utilizará la Aplicación de forma que pueda dañar, deshabilitar, sobrecargar o deteriorar nuestros servidores o redes. No intentará obtener acceso no autorizado a ninguna parte de la Aplicación, otras cuentas, sistemas informáticos o redes conectadas. No utilizará la Aplicación para actividades comerciales sin consentimiento previo por escrito." },
-          { 
-            title: "2.4. Publicidad", 
-            content: "La aplicación integra Google Mobile Ads (AdMob) para mostrar banners e interstitials; la configuración actual utiliza unidades publicitarias de prueba. La disponibilidad y el contenido de anuncios de producción pueden variar según la región, el dispositivo y la configuración de privacidad. Los anuncios y enlaces son proporcionados por terceros y no implican que Andara Devs respalde los productos o servicios anunciados. El tratamiento de datos por Google se rige por sus propias políticas.",
-            links: [
-              { text: "Política de privacidad de Google (incluido AdMob)", url: "https://policies.google.com/privacy" },
-              { text: "Cómo usa Google los datos de apps de terceros", url: "https://policies.google.com/technologies/partner-sites" }
-            ]
-          },
-          { 
-            title: "2.5. Compras y funciones de pago", 
-            content: "La aplicación ofrece compras integradas para obtener acceso Pro. El precio y las características se muestran antes de confirmar la compra. Las transacciones se gestionan mediante Google Play; los pagos, reembolsos y cancelaciones están sujetos a sus condiciones. RevenueCat se utiliza para validar compras y administrar derechos de acceso, pero no procesa el pago ni recibe los datos de la tarjeta. Las condiciones específicas mostradas en Google Play al comprar prevalecerán para esa transacción.",
-            links: [
-              { text: "Política de privacidad de RevenueCat", url: "https://www.revenuecat.com/privacy" }
-            ]
-          },
-          { title: "3. Propiedad Intelectual", content: "Todos los derechos, títulos e intereses en y para la Aplicación, incluyendo todos los derechos de autor, marcas comerciales, secretos comerciales y otros derechos de propiedad intelectual, son propiedad de Andara Devs o sus licenciantes. Estos Términos no le otorgan ningún derecho sobre la Aplicación o su contenido, excepto el derecho limitado a usarla de acuerdo con estos Términos." },
-          { title: "4. Contenido de Terceros y Enlaces", content: "La aplicación utiliza datos deportivos y recursos de terceros, incluidos NBA Stats, ESPN, NBA CDN y, cuando está configurado, BALLDONTLIE; también puede mostrar anuncios de terceros y enlaces a sus sitios. NBA, ESPN, los equipos, sus nombres, marcas y logotipos pertenecen a sus respectivos titulares. NBA Analytics Sim es una aplicación independiente y no está afiliada, patrocinada ni respaldada por la NBA, ESPN ni sus equipos. No controlamos ni asumimos responsabilidad por el contenido, las políticas de privacidad o las prácticas de servicios externos." },
-          { title: "5. Exclusión de Garantías", content: "LA APLICACIÓN SE PROPORCIONA 'TAL CUAL' Y 'SEGÚN DISPONIBILIDAD', SIN GARANTÍAS DE NINGÚN TIPO, YA SEAN EXPRESAS O IMPLÍCITAS. ANDARA DEVS NO GARANTIZA QUE LA APLICACIÓN FUNCIONARÁ SIN INTERRUPCIONES, SERÁ SEGURA O ESTARÁ LIBRE DE ERRORES." },
-          { title: "6. Limitación de Responsabilidad", content: "EN NINGÚN CASO ANDARA DEVS, SUS DIRECTORES, EMPLEADOS O SOCIOS SERÁN RESPONSABLES DE NINGÚN DAÑO INDIRECTO, INCIDENTAL, ESPECIAL, CONSECUENTE O PUNITIVO, INCLUYENDO, SIN LIMITACIÓN, PÉRDIDA DE BENEFICIOS, DATOS O USO, RESULTANTES DE SU ACCESO O USO O INCAPACIDAD DE ACCEDER O USAR LA APLICACIÓN." },
-          { title: "7. Indemnización", content: "Usted acepta defender, indemnizar y eximir de responsabilidad a Andara Devs de y contra cualquier reclamo, daño, obligación, pérdida, responsabilidad o costo resultantes de o que surjan de su uso y acceso a la Aplicación, o por un incumplimiento de estos Términos." },
-          { title: "8. Cambios en los Términos", content: "Nos reservamos el derecho, a nuestra entera discreción, de modificar o reemplazar estos Términos en cualquier momento. Al continuar accediendo o utilizando nuestra Aplicación después de que esas revisiones entren en vigor, usted acepta estar sujeto a los términos revisados." },
-          { title: "9. Ley Aplicable", content: "Estos Términos se aplicarán de acuerdo con las leyes y normas de protección al consumidor que correspondan a la relación entre usted y Andara Devs. Nada de lo aquí dispuesto limita los derechos que la legislación aplicable reconozca como irrenunciables." },
-          { title: "10. Contacto", content: "Si tiene alguna pregunta sobre estos Términos, por favor contáctenos en: Andara Devs, Correo electrónico de soporte: andaradevs@gmail.com" }
-        ]
-      },
-      en: {
-        lastUpdated: "Last Updated: September 29, 2026",
-        rights: "All rights reserved.",
-        tabs: { privacy: "Privacy Policy", terms: "Terms of Service" },
-        privacy: [
-          { title: "1. Information We Collect", content: "NBA Analytics Sim is an NBA statistics and game-simulation application. It does not require an account or sign-in. Simulation history and language and theme preferences are stored locally on the device; we do not maintain our own account database. When sports data is requested, ads load, or in-app purchases are used, the device communicates with external providers, which may receive technical connection data such as IP address and device or request information. Google Mobile Ads is integrated for banner and interstitial formats. RevenueCat is used in supported versions to present purchase options, validate purchases, and synchronize Pro access." },
-          { title: "2. How We Use Your Information", content: "The application uses local history and preferences to display simulations and personalize the experience. It queries external sources for schedules, scores, rosters, statistics, and, when available, injury data that power simulations. Google Mobile Ads may request ads and process technical data to deliver them, prevent fraud, and measure performance; personalization options depend on the platform, configuration, and applicable consent." },
-          { 
-            title: "3. Advertising, Purchases, and Third-Party Providers", 
-            content: "We do not sell personal information. Google Mobile Ads (Google AdMob) provides the integrated advertising formats. Google and its partners may process advertising identifiers, IP address, device and app information, ad interactions, diagnostics, and fraud-prevention signals to serve and measure ads and prevent abuse; the specific data depends on configuration and device or regional privacy choices. RevenueCat may process an anonymous app user identifier, purchase and transaction information, receipts or entitlement information, and diagnostic data to validate, synchronize, and restore purchases. Google Play processes Android payments; NBA Analytics Sim does not receive or store card details. Each provider handles data under its own policies.",
-            links: [
-              { text: "Google Privacy Policy (including AdMob)", url: "https://policies.google.com/privacy" },
-              { text: "How Google uses data from third-party apps", url: "https://policies.google.com/technologies/partner-sites" },
-              { text: "RevenueCat Privacy Policy", url: "https://www.revenuecat.com/privacy" }
-            ]
-          },
-          { title: "4. External Data Sources", content: "The application queries NBA Stats, ESPN public services, and NBA CDN for statistics, rosters, schedules, injuries, and results. Certain schedules may use BALLDONTLIE when a server-side key is configured; if a source is unavailable, the app may fall back to another source or the local cache. Sports data powers simulations and is cached locally. Each external provider may process technical request data under its own policies." },
-          { title: "5. Children's Privacy", content: "Our Application is not directed to children under 13 years old. We do not knowingly collect personal identification information from minors. If we discover that a minor has provided us with personal data, we will delete it immediately." },
-          { title: "6. Data Security", content: "We use HTTPS for communications with external sources and store simulation history, preferences, and the sports data cache on the device. We do not store card details, passwords, or session cookies. External providers are responsible for the security measures applicable to data they receive through their services." },
-          { title: "7. Your Rights", content: "Depending on your jurisdiction, you may have rights to access, correct, delete, object to, or restrict the processing of personal data. For requests concerning data we process directly, contact andaradevs@gmail.com. Requests concerning data processed by Google Play, Google, RevenueCat, or other sources should also be directed to the relevant provider under its policies." },
-          { title: "8. Changes to This Privacy Policy", content: "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Policy on this page and updating the effective date. You are advised to review this Policy periodically for any changes." },
-          { title: "9. Contact", content: "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at: Andara Devs, Support Email: andaradevs@gmail.com" }
-        ],
-        terms: [
-          { title: "1. Acceptance of Terms", content: "By downloading, installing, or using the Application, you acknowledge that you have read, understood, and accepted these Terms, as well as our Privacy Policy. These Terms constitute a binding legal agreement between you and Andara Devs. If you do not agree with these Terms, do not use the Application." },
-          { title: "2. Use of the Application", content: "NBA Analytics Sim is provided solely for your personal, non-commercial use. You agree not to use the Application for any illegal purpose or prohibited by these Terms. The Application uses data from NBA Stats and ESPN, as well as simulation algorithms (Monte Carlo) to generate predictions. While we strive for accuracy, we do not guarantee the accuracy, completeness, or reliability of the predictions, statistics, or any other information provided." },
-          { title: "2.2. Disclaimer on Betting and Gambling", content: "NBA Analytics Sim is strictly an informational, statistical, and entertainment tool. The Application is not a betting platform, does not manage real money, and does not encourage gambling. The user is solely responsible for the use they make of the data generated by the simulator. We are not responsible for financial losses or betting decisions made by the user based on simulation results. Predictions are only estimates and should not be considered as betting or financial advice." },
-          { title: "2.3. Restrictions on Use", content: "You agree not to modify, adapt, translate, reverse engineer, decompile, or disassemble any part of the Application. You will not use the Application in any way that could damage, disable, overload, or impair our servers or networks. You will not attempt to gain unauthorized access to any part of the Application, other accounts, computer systems, or networks connected to our servers. You will not use the Application for commercial activities without our prior written consent." },
-          { 
-            title: "2.4. Advertising", 
-            content: "The application integrates Google Mobile Ads (AdMob) to display banner and interstitial ads; the current configuration uses test ad units. The availability and content of production ads may vary by region, device, and privacy settings. Ads and links are provided by third parties and do not imply endorsement by Andara Devs of the advertised products or services. Google's handling of data is governed by its own policies.",
-            links: [
-              { text: "Google Privacy Policy (including AdMob)", url: "https://policies.google.com/privacy" },
-              { text: "How Google uses data from third-party apps", url: "https://policies.google.com/technologies/partner-sites" }
-            ]
-          },
-          { 
-            title: "2.5. Purchases and Paid Features", 
-            content: "The application offers in-app purchases for Pro access. The price and features are shown before purchase confirmation. Transactions are handled through Google Play; payments, refunds, and cancellations are subject to its terms. RevenueCat is used to validate purchases and manage entitlements, but it does not process payment or receive card details. The specific terms shown in Google Play at purchase will govern that transaction.",
-            links: [
-              { text: "RevenueCat Privacy Policy", url: "https://www.revenuecat.com/privacy" }
-            ]
-          },
-          { title: "3. Intellectual Property", content: "All rights, titles, and interests in and to the Application, including all copyrights, trademarks, trade secrets, and other intellectual property rights, are owned by Andara Devs or its licensors. These Terms do not grant you any rights over the Application or its content, except the limited right to use it in accordance with these Terms." },
-          { title: "4. Third-Party Content and Links", content: "The application uses third-party sports data and resources, including NBA Stats, ESPN, NBA CDN and, when configured, BALLDONTLIE; it may also display third-party ads and links to external sites. NBA, ESPN, the teams, and their names, marks, and logos belong to their respective owners. NBA Analytics Sim is an independent application and is not affiliated with, sponsored by, or endorsed by the NBA, ESPN, or their teams. No controlamos ni asumimos responsabilidad por el contenido, las políticas de privacidad o las prácticas de servicios externos." },
-          { title: "5. Disclaimer of Warranties", content: "THE APPLICATION IS PROVIDED 'AS IS' AND 'AS AVAILABLE', WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. ANDARA DEVS DOES NOT GUARANTEE THAT THE APPLICATION WILL OPERATE WITHOUT INTERRUPTIONS, WILL BE SECURE, OR WILL BE ERROR-FREE." },
-          { title: "6. Limitation of Liability", content: "IN NO EVENT SHALL ANDARA DEVS, ITS DIRECTORS, EMPLOYEES, OR PARTNERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING, WITHOUT LIMITATION, LOSS OF PROFITS, DATA, OR USE, RESULTING FROM YOUR ACCESS OR USE OR INABILITY TO ACCESS OR USE THE APPLICATION." },
-          { title: "7. Indemnification", content: "You agree to defend, indemnify, and hold harmless Andara Devs from and against any claim, damage, obligation, loss, liability, or cost resulting from or arising out of your use and access to the Application, or by a breach of these Terms." },
-          { title: "8. Changes to Terms", content: "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Application after those revisions become effective, you agree to be bound by the revised Terms." },
-          { title: "9. Governing Law", content: "These Terms apply in accordance with the laws and consumer-protection rules governing the relationship between you and Andara Devs. Nothing in these Terms limits rights that applicable law makes non-waivable." },
-          { title: "10. Contact", content: "If you have any questions about these Terms, please contact us at: Andara Devs, Support Email: andaradevs@gmail.com" }
-        ]
-      }
-    };
-
-    function renderSectionList(sections) {
-      return sections.map(sec => `
-        <div class="section-block">
-          <h3>${sec.title}</h3>
-          <p>${sec.content}</p>
-          ${sec.links ? `
-            <div class="external-links">
-              ${sec.links.map(link => `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.text}</a>`).join('')}
-            </div>
-          ` : ''}
-        </div>
-      `).join('');
-    }
-
-    function renderContent() {
-      const langData = data[currentLang];
-      
-      document.getElementById('last-updated').innerText = langData.lastUpdated;
-      document.getElementById('rights-text').innerText = langData.rights;
-      document.getElementById('tab-privacy').innerText = langData.tabs.privacy;
-      document.getElementById('tab-terms').innerText = langData.tabs.terms;
-
-      // Render Privacy
-      document.getElementById('privacy-content').innerHTML = renderSectionList(langData.privacy);
-
-      // Render Terms
-      document.getElementById('terms-content').innerHTML = renderSectionList(langData.terms);
-    }
-
-    function setLanguage(lang) {
-      currentLang = lang;
-      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      renderContent();
-    }
-
-    function switchTab(tab) {
-      currentTab = tab;
-      document.getElementById('tab-privacy').classList.toggle('active', tab === 'privacy');
-      document.getElementById('tab-terms').classList.toggle('active', tab === 'terms');
-      
-      document.getElementById('privacy-content').classList.toggle('active', tab === 'privacy');
-      document.getElementById('terms-content').classList.toggle('active', tab === 'terms');
-    }
-
-    // Ejecutar renderizado inicial en inglés al cargar la página
-    renderContent();
-  </script>
-</body>
-</html>
+          { title: "2. Uso de la Aplicación", content: "La Aplicación SaberMetrics for MLB se proporciona únicamente para su uso personal y no comercial. Usted acepta no utilizar la Aplicación para ningún propósito ilegal o prohibido por estos Términos. La Aplicación utiliza datos de la API oficial de la MLB y de Open-Meteo Weather API, así como algoritmos de simulación (Montecarlo) para generar predicciones. Si bien nos esforzamos por la precisión, no garantizamos la exactitud, integridad o fiabilidad de las predicciones, estadísticas o cualquier otra información proporcionada." },
+          { title: "2.2. Exención de Responsabilidad sobre Apuestas y Juego", content: "SaberMetrics for MLB es
