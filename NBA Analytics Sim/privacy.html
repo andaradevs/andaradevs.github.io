@@ -158,18 +158,19 @@
     <div class="header">
       <div class="title-group">
         <h1 id="app-title">NBA Analytics Sim</h1>
-        <p id="last-updated">Última actualización: 29 de septiembre de 2026</p>
+        <p id="last-updated">Last Updated: September 29, 2026</p>
       </div>
 
+      <!-- Botón activo por defecto en EN -->
       <div class="lang-switcher">
-        <button id="btn-es" class="active" onclick="setLanguage('es')">ES</button>
-        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+        <button id="btn-es" onclick="setLanguage('es')">ES</button>
+        <button id="btn-en" class="active" onclick="setLanguage('en')">EN</button>
       </div>
     </div>
 
     <div class="tabs">
-      <button id="tab-privacy" class="tab-btn active" onclick="switchTab('privacy')">Política de Privacidad</button>
-      <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Términos de Servicio</button>
+      <button id="tab-privacy" class="tab-btn active" onclick="switchTab('privacy')">Privacy Policy</button>
+      <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Terms of Service</button>
     </div>
 
     <!-- PRIVACY POLICY CONTENT -->
@@ -179,12 +180,13 @@
     <div id="terms-content" class="content-section"></div>
 
     <div class="footer">
-      <p>© 2026 Andara Devs. <span id="rights-text">Todos los derechos reservados.</span></p>
+      <p>© 2026 Andara Devs. <span id="rights-text">All rights reserved.</span></p>
     </div>
   </div>
 
   <script>
-    let currentLang = 'es';
+    // Idioma predeterminado cambiado a inglés ('en')
+    let currentLang = 'en';
     let currentTab = 'privacy';
 
     const data = {
@@ -197,7 +199,7 @@
           { title: "2. Cómo Utilizamos su Información", content: "La aplicación utiliza el historial y las preferencias locales para mostrar simulaciones y personalizar la experiencia. Consulta fuentes externas para obtener calendarios, marcadores, plantillas, estadísticas y, cuando están disponibles, datos de lesiones que alimentan las simulaciones. Google Mobile Ads puede solicitar anuncios y procesar datos técnicos para entregarlos, limitar fraudes y medir su funcionamiento; las opciones de personalización dependen de la plataforma, la configuración y el consentimiento aplicable." },
           { 
             title: "3. Anuncios, compras y proveedores externos", 
-            content: "No vendemos información personal. Google Mobile Ads (Google AdMob) proporciona los formatos publicitarios integrados. Google y sus socios pueden procesar identificadores publicitarios, dirección IP, información del dispositivo y de la aplicación, interacciones con anuncios, diagnósticos y señales de prevención de fraude para mostrar y medir anuncios y prevenir abusos; los datos concretos dependen de la configuración y de las opciones de privacidad del dispositivo o la región. RevenueCat puede procesar un identificador de usuario anónimo de la aplicación, información de compras y transacciones, recibos o derechos de acceso y datos de diagnóstico para validar, sincronizar y restaurar compras. Google Play procesa los pagos en Android; NBA Analytics Sim no recibe ni almacena los datos de la tarjeta. Cada proveedor trata los datos conforme a sus propias políticas.",
+            content: "No vendemos información personal. Google Mobile Ads (Google AdMob) proporciona los formatos publicitarios integrados. Google y sus socios pueden procesar identificadores publicitarios, dirección IP, información del dispositivo y de la aplicación, interacciones con anuncios, diagnósticos y señales de prevención de fraude para mostrar y medir anuncios y prevenir abusos; los datos concretos dependen de la configuración y de las opciones de privacidad del dispositivo o la región. RevenueCat puede procesar un identificador de usuario anónimo de la aplicación, información de compras y transacciones, recibos o derechos de acceso y datos de diagnóstico para validar, sincronizar y restaurar compras. Google Play procesa los pagos en Android; NBA Analytics Sim não recibe ni almacena los datos de la tarjeta. Cada proveedor trata los datos conforme a sus propias políticas.",
             links: [
               { text: "Política de privacidad de Google (incluido AdMob)", url: "https://policies.google.com/privacy" },
               { text: "Cómo usa Google los datos de apps de terceros", url: "https://policies.google.com/technologies/partner-sites" },
