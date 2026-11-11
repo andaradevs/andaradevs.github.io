@@ -1,1 +1,321 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NFL Match Simulator - Legal & Privacy</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #f8fafc;
+      --muted-color: #94a3b8;
+      --accent-color: #0284c7;
+      --accent-hover: #0369a1;
+      --border-color: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .title-group h1 {
+      font-size: 1.8rem;
+      color: var(--text-color);
+    }
+
+    .title-group p {
+      color: var(--muted-color);
+      font-size: 0.9rem;
+    }
+
+    .lang-switcher button {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .lang-switcher button.active, .lang-switcher button:hover {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--muted-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+    }
+
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    .section-block {
+      margin-bottom: 20px;
+    }
+
+    .section-block h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .section-block p {
+      color: var(--muted-color);
+      font-size: 0.95rem;
+      text-align: justify;
+    }
+
+    .external-links {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .external-links a {
+      color: var(--accent-color);
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+
+    .external-links a:hover {
+      color: var(--accent-hover);
+    }
+
+    .footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="title-group">
+        <h1 id="app-title">NFL Match Simulator</h1>
+        <p id="last-updated">Last Updated: November 11, 2026</p>
+      </div>
+
+      <div class="lang-switcher">
+        <button id="btn-es" onclick="setLanguage('es')">ES</button>
+        <button id="btn-en" class="active" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button id="tab-privacy" class="tab-btn active" onclick="switchTab('privacy')">Privacy Policy</button>
+      <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Terms of Service</button>
+    </div>
+
+    <!-- PRIVACY POLICY CONTENT -->
+    <div id="privacy-content" class="content-section active"></div>
+
+    <!-- TERMS OF SERVICE CONTENT -->
+    <div id="terms-content" class="content-section"></div>
+
+    <div class="footer">
+      <p>© 2026 Andara Devs. <span id="rights-text">All rights reserved.</span></p>
+    </div>
+  </div>
+
+  <script>
+    let currentLang = 'en';
+    let currentTab = 'privacy';
+
+    const data = {
+      es: {
+        lastUpdated: "Última actualización: 11 de noviembre de 2026",
+        rights: "Todos los derechos reservados.",
+        tabs: { privacy: "Política de Privacidad", terms: "Términos de Servicio" },
+        privacy: [
+          { title: "1. Información que Recopilamos", content: "La Aplicación NFL Match Simulator está diseñada como un simulador analítico y estadístico y minimiza la recopilación de datos personales. Recopilamos información de uso no personal (datos anónimos de interacción), datos de simulaciones (almacenados localmente en su dispositivo mediante AsyncStorage, sin ser transmitidos a servidores externos) e información técnica básica del dispositivo." },
+          { title: "2. Cómo Utilizamos su Información", content: "Utilizamos la información recopilada para operar y mejorar la Aplicación, realizar análisis interno de uso de forma anónima, personalizar su experiencia (preferencias de tema e idioma) y garantizando la estabilidad del sistema." },
+          { 
+            title: "3. Servicios de Terceros: Publicidad y Compras Integradas", 
+            content: "No vendemos ni alquilamos su información personal. La versión gratuita muestra anuncios servidos por Google AdMob. La Aplicación solicita anuncios no personalizados; aun así, Google puede tratar datos técnicos como IP, identificadores publicitarios y diagnósticos para la entrega y medición de anuncios. Para gestionar suscripciones o compras únicas Premium/Ad-Free usamos RevenueCat, que procesa identificadores anónimos de compra e historial de transacciones. Los pagos son procesados directamente por la tienda correspondiente (Google Play Store o Apple App Store).",
+            links: [
+              { text: "Política de privacidad de Google AdMob", url: "https://policies.google.com/privacy" },
+              { text: "Política de privacidad de RevenueCat", url: "https://www.revenuecat.com/privacy/" }
+            ]
+          },
+          { title: "4. Fuentes de Datos Externos", content: "La Aplicación obtiene datos estadísticos y calendarios deportivos de fuentes públicas y APIs deportivas abiertas, así como datos meteorológicos para simulaciones de partidos. Toda la información obtenida es pública y se utiliza únicamente con fines analíticos y de simulación." },
+          { title: "5. Privacidad de Menores", content: "Nuestra Aplicación no está dirigida a niños menores de 13 años. No recopilamos a sabiendas información personal de menores." },
+          { title: "6. Seguridad de los Datos", content: "Implementamos medidas de seguridad técnicas como HTTPS para todas las comunicaciones externas y almacenamiento seguro local. Los datos gestionados por AdMob y RevenueCat están protegidos bajo las políticas de seguridad de dichas empresas." },
+          { title: "7. Sus Derechos", content: "Usted puede solicitar la rectificación o eliminación de cualquier dato asociado a su dispositivo poniéndose en contacto directamente con nosotros a través de nuestro correo de soporte." },
+          { title: "8. Cambios a esta Política", content: "Nos reservamos el derecho de actualizar esta Política de Privacidad periódicamente. Notificaremos cualquier cambio actualizando la fecha en la parte superior de esta página." },
+          { title: "9. Contacto", content: "Si tiene dudas o consultas sobre esta Política de Privacidad, contáctenos en: Andara Devs, Correo de soporte: andaradevs@gmail.com" }
+        ],
+        terms: [
+          { title: "1. Aceptación de los Términos", content: "Al descargar, instalar o utilizar NFL Match Simulator, usted acepta expresamente estar sujeto a estos Términos de Servicio y a nuestra Política de Privacidad. Si no está de acuerdo, le rogamos que desinstale la Aplicación." },
+          { title: "2. Uso de la Aplicación y Naturaleza Informativa", content: "La Aplicación se proporciona exclusivamente para uso personal y no comercial. NFL Match Simulator utiliza algoritmos de simulación estadística (Monte Carlo) y métricas de rendimiento para generar estimaciones de partidos. No garantizamos la exactitud o infalibilidad de los resultados generados." },
+          { title: "2.2. Exención de Responsabilidad sobre Apuestas y Juego de Azar", content: "NFL Match Simulator es una herramienta estrictamente informativa, estadística y de entretenimiento. La Aplicación NO es una plataforma de apuestas, no gestiona ni procesa dinero real ni incentiva el juego de azar. El usuario asume la responsabilidad total del uso de la información generada. No nos hacemos responsables de pérdidas financieras, apuestas o decisiones tomadas basadas en nuestras simulaciones." },
+          { title: "2.3. Restricciones", content: "Queda totalmente prohibido descompilar, realizar ingeniería inversa, modificar o distribuir el código fuente de la Aplicación sin autorización previa por escrito de Andara Devs." },
+          { 
+            title: "2.4. Compras Integradas y Publicidad", 
+            content: "La versión gratuita puede incluir anuncios a través de Google AdMob. La versión Premium/Ad-Free (gestionada por RevenueCat) elimina los anuncios. El pago, renovación o cancelación de compras dentro de la app se rige por los términos y condiciones de la Google Play Store o Apple App Store.",
+            links: [
+              { text: "Términos de Google Play Services", url: "https://play.google.com/intl/es_us/about/play-terms/" }
+            ]
+          },
+          { title: "3. Propiedad Intelectual", content: "Todos los algoritmos, marcas, logotipos, diseño y código fuente de NFL Match Simulator son propiedad exclusiva de Andara Devs. Todos los nombres de equipos, ligas o marcas comerciales mencionadas pertenecen a sus respectivos dueños y se utilizan únicamente con fines descriptivos e informativos." },
+          { title: "4. Exclusión de Garantías", content: "LA APLICACIÓN SE OFRECE 'TAL CUAL' Y 'SEGÚN DISPONIBILIDAD', SIN GARANTÍAS DE NINGÚN TIPO, EXPRESAS O IMPLÍCITAS." },
+          { title: "5. Limitación de Responsabilidad", content: "ANDARA DEVS NO SERÁ RESPONSABLE DE NINGÚN DAÑO DIRECTO, INDIRECTO, INCIDENTAL O CONSECUENTE DERIVADO DEL USO O LA INCAPACIDAD DE USO DE LA APLICACIÓN." },
+          { title: "6. Ley Aplicable", content: "Estos Términos se rigen por las leyes aplicables al domicilio registrado del desarrollador principal (Andara Devs)." },
+          { title: "7. Contacto", content: "Para soporte o preguntas sobre los Términos de Servicio, escriba a: andaradevs@gmail.com" }
+        ]
+      },
+      en: {
+        lastUpdated: "Last Updated: November 11, 2026",
+        rights: "All rights reserved.",
+        tabs: { privacy: "Privacy Policy", terms: "Terms of Service" },
+        privacy: [
+          { title: "1. Information We Collect", content: "NFL Match Simulator is designed as an analytical and statistical simulator and minimizes personal data collection. We collect non-personal usage information (anonymous interaction data), simulation data (stored locally on your device via AsyncStorage and not transmitted to external servers), and basic technical device diagnostics." },
+          { title: "2. How We Use Your Information", content: "We use the collected information to operate and improve the Application, perform anonymous usage analytics, personalize your experience (theme and language preferences), and ensure system stability." },
+          { 
+            title: "3. Third-Party Services: Advertising and In-App Purchases", 
+            content: "We do not sell or rent your personal data. The free version displays ads served by Google AdMob. The Application requests non-personalized ads; however, Google may process technical data such as IP address and device identifiers to serve and measure ad performance. To manage subscriptions or ad-free purchases, we use RevenueCat, which processes anonymous purchase identifiers. Payment processing is handled directly by Google Play Store or Apple App Store.",
+            links: [
+              { text: "Google AdMob Privacy Policy", url: "https://policies.google.com/privacy" },
+              { text: "RevenueCat Privacy Policy", url: "https://www.revenuecat.com/privacy/" }
+            ]
+          },
+          { title: "4. External Data Sources", content: "The Application retrieves statistical and schedule data from public sports endpoints and open APIs, as well as weather data for match simulations. All retrieved data is public and used solely for simulation purposes." },
+          { title: "5. Children's Privacy", content: "Our Application is not directed to children under 13 years of age. We do not knowingly collect personal data from minors." },
+          { title: "6. Data Security", content: "We implement technical security measures, including HTTPS encryption for all network calls and secure local device storage. Third-party data processed by AdMob and RevenueCat adheres to their respective security standards." },
+          { title: "7. Your Rights", content: "You may request access to or deletion of data associated with your device by contacting our support team directly via email." },
+          { title: "8. Changes to This Policy", content: "We reserve the right to update this Privacy Policy from time to time. We will notify you of changes by updating the date at the top of this document." },
+          { title: "9. Contact Us", content: "If you have any questions regarding this Privacy Policy, contact us at: Andara Devs, Support Email: andaradevs@gmail.com" }
+        ],
+        terms: [
+          { title: "1. Acceptance of Terms", content: "By downloading, installing, or using NFL Match Simulator, you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree, please uninstall the Application." },
+          { title: "2. Use of Application and Informational Purpose", content: "The Application is provided strictly for personal, non-commercial use. NFL Match Simulator uses Monte Carlo statistical simulation models to generate match outcome estimates. We do not guarantee the absolute accuracy or reliability of any generated predictions." },
+          { title: "2.2. Disclaimer on Gambling and Sports Betting", content: "NFL Match Simulator is strictly an informational, statistical, and entertainment tool. The Application IS NOT a betting platform, does not process real money, and does not encourage gambling. The user assumes full responsibility for how they use the generated data. We are not liable for any financial losses or betting decisions made based on simulation results." },
+          { title: "2.3. Usage Restrictions", content: "You may not decompile, reverse engineer, modify, or redistribute the Application code without prior written consent from Andara Devs." },
+          { 
+            title: "2.4. In-App Purchases and Ads", 
+            content: "The free tier includes ads served by Google AdMob. Premium / Ad-Free upgrades (managed via RevenueCat) remove advertising. Purchases, renewals, and cancellations are subject to the terms of Google Play Store or Apple App Store.",
+            links: [
+              { text: "Google Play Terms of Service", url: "https://play.google.com/intl/en_us/about/play-terms/" }
+            ]
+          },
+          { title: "3. Intellectual Property", content: "All algorithms, design assets, and codebase for NFL Match Simulator are owned by Andara Devs. All third-party team names, logos, or trademarks referenced belong to their respective owners and are used strictly for identification and descriptive purposes." },
+          { title: "4. Disclaimer of Warranties", content: "THE APPLICATION IS PROVIDED 'AS IS' AND 'AS AVAILABLE' WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED." },
+          { title: "5. Limitation of Liability", content: "IN NO EVENT SHALL ANDARA DEVS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OF OR INABILITY TO USE THE APPLICATION." },
+          { title: "6. Governing Law", content: "These Terms shall be governed by the laws applicable to the registered location of Andara Devs." },
+          { title: "7. Contact", content: "For support or questions regarding these Terms, contact: andaradevs@gmail.com" }
+        ]
+      }
+    };
+
+    function renderSectionList(sections) {
+      return sections.map(sec => `
+        <div class="section-block">
+          <h3>${sec.title}</h3>
+          <p>${sec.content}</p>
+          ${sec.links ? `
+            <div class="external-links">
+              ${sec.links.map(link => `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.text}</a>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+
+    function renderContent() {
+      const langData = data[currentLang];
+      
+      document.getElementById('last-updated').innerText = langData.lastUpdated;
+      document.getElementById('rights-text').innerText = langData.rights;
+      document.getElementById('tab-privacy').innerText = langData.tabs.privacy;
+      document.getElementById('tab-terms').innerText = langData.tabs.terms;
+
+      document.getElementById('privacy-content').innerHTML = renderSectionList(langData.privacy);
+      document.getElementById('terms-content').innerHTML = renderSectionList(langData.terms);
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      renderContent();
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById('tab-privacy').classList.toggle('active', tab === 'privacy');
+      document.getElementById('tab-terms').classList.toggle('active', tab === 'terms');
+      
+      document.getElementById('privacy-content').classList.toggle('active', tab === 'privacy');
+      document.getElementById('terms-content').classList.toggle('active', tab === 'terms');
+    }
+
+    renderContent();
+  </script>
+</body>
+</html>
