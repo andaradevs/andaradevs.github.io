@@ -1,1 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabermetrics Pro Baseball - Legal & Privacy</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #f8fafc;
+      --muted-color: #94a3b8;
+      --accent-color: #0284c7;
+      --accent-hover: #0369a1;
+      --border-color: #334155;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .title-group h1 {
+      font-size: 1.8rem;
+      color: var(--text-color);
+    }
+
+    .title-group p {
+      color: var(--muted-color);
+      font-size: 0.9rem;
+    }
+
+    .lang-switcher button {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .lang-switcher button.active, .lang-switcher button:hover {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--muted-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+    }
+
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    .section-block {
+      margin-bottom: 20px;
+    }
+
+    .section-block h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .section-block p {
+      color: var(--muted-color);
+      font-size: 0.95rem;
+      text-align: justify;
+      white-space: pre-line;
+    }
+
+    .external-links {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .external-links a {
+      color: var(--accent-color);
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+
+    .external-links a:hover {
+      color: var(--accent-hover);
+    }
+
+    .footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="title-group">
+        <h1 id="app-title">Sabermetrics Pro Baseball</h1>
+        <p id="last-updated">Last Updated: November 22, 2026</p>
+      </div>
+
+      <div class="lang-switcher">
+        <button id="btn-es" onclick="setLanguage('es')">ES</button>
+        <button id="btn-en" class="active" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button id="tab-privacy" class="tab-btn active" onclick="switchTab('privacy')">Privacy Policy</button>
+      <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Terms of Service</button>
+    </div>
+
+    <!-- PRIVACY POLICY CONTENT -->
+    <div id="privacy-content" class="content-section active"></div>
+
+    <!-- TERMS OF SERVICE CONTENT -->
+    <div id="terms-content" class="content-section"></div>
+
+    <div class="footer">
+      <p>© 2026 AndaraDevs. <span id="rights-text">All rights reserved.</span></p>
+    </div>
+  </div>
+
+  <script>
+    let currentLang = 'en';
+    let currentTab = 'privacy';
+
+    const data = {
+      es: {
+        lastUpdated: "Última actualización: 22 de noviembre de 2026",
+        rights: "Todos los derechos reservados.",
+        tabs: { privacy: "Política de Privacidad", terms: "Términos de Servicio" },
+        privacy: [
+          {
+            title: "1. Naturaleza Independiente y Descargo de Afiliación",
+            content: "Sabermetrics Pro Baseball es una herramienta independiente de análisis sabermétrico y simulación matemática desarrollada por Andara Devs. Esta Aplicación no está afiliada, asociada, autorizada, respaldada ni conectada oficialmente de ninguna manera con ninguna liga profesional de béisbol, franquicia, equipo, asociación de jugadores o entidad gubernamental deportiva. Todos los nombres de ciudades, estadísticas públicas y referencias deportivas se utilizan únicamente con fines informativos, educativos y de análisis estadístico."
+          },
+          {
+            title: "2. Información que Recopilamos",
+            content: "Minimizamos la recopilación de datos personales. Recopilamos: (a) datos de uso no personal y diagnósticos técnicos anónimos para mejorar la estabilidad de la Aplicación; (b) historial, preferencias y parámetros de simulaciones, almacenados de forma local en su dispositivo mediante AsyncStorage (no se transmiten a servidores propios); (c) identificadores de publicidad del dispositivo gestionados por nuestros socios publicitarios; y (d) información de compras y estado de acceso/desbloqueo gestionada a través de RevenueCat y la tienda de aplicaciones correspondiente (no almacenamos números de tarjeta de crédito ni datos bancarios completos)."
+          },
+          {
+            title: "3. Publicidad, Banners, Anuncios Recompensados y Compras",
+            content: "Para mantener la Aplicación accesible, integramos servicios de publicidad de terceros (como Google AdMob) que muestran anuncios tipo banner y anuncios recompensados opcionales. Usted puede elegir visualizar anuncios recompensados de forma voluntaria para desbloquear funciones adicionales, como ejecuciones de simulaciones avanzadas o consultas detalladas de estadísticas de jugadores. Asimismo, utilizamos RevenueCat para administrar compras integradas o desbloqueos de funciones y validar el estado de acceso del usuario. Estos proveedores pueden recopilar y utilizar identificadores de dispositivo/publicidad (como el ID de publicidad de Android o AAID), dirección IP aproximada, registros de transacciones y datos de interacción para mostrar publicidad, prevenir el fraude y gestionar funciones habilitadas. Puede gestionar sus preferencias de consentimiento o restablecer su ID de publicidad desde los ajustes de su dispositivo.",
+            links: [
+              { text: "Política de Privacidad de Google AdMob", url: "https://policies.google.com/privacy" },
+              { text: "Política de Privacidad de RevenueCat", url: "https://www.revenuecat.com/privacy" },
+              { text: "Términos de RevenueCat", url: "https://www.revenuecat.com/terms" }
+            ]
+          },
+          {
+            title: "4. Cómo Utilizamos su Información",
+            content: "Utilizamos la información recopilada para operar y optimizar el motor de simulación, habilitar el desbloqueo de consultas y simulaciones mediante anuncios recompensados o compras, personalizar la interfaz (idioma y tema visual), analizar métricas agregadas de rendimiento y proteger la seguridad e integridad de la Aplicación frente a usos indebidos."
+          },
+          {
+            title: "5. Compartir su Información",
+            content: "No vendemos ni alquilamos su información personal a terceros. Solo compartimos datos técnicos y transaccionales estrictamente necesarios con proveedores de servicios esenciales (como redes de publicidad y servicios de gestión de compras) que están obligados a proteger la información bajo sus respectivas políticas de privacidad y normativas vigentes, o cuando sea requerido por ley.",
+            links: [
+              { text: "Google / AdMob", url: "https://policies.google.com/privacy" },
+              { text: "RevenueCat", url: "https://www.revenuecat.com/privacy" }
+            ]
+          },
+          {
+            title: "6. Fuentes de Datos Estadísticos Externos",
+            content: "La Aplicación consulta interfaces públicas y servicios externos de datos estadísticos de béisbol (rendimiento de equipos, calendarios, estadísticas de lanzadores y bateadores) y Open-Meteo Weather API (condiciones climáticas para cálculos de simulación). Estos datos se procesan únicamente como insumos matemáticos y no implican respaldo ni relación comercial con dichas fuentes."
+          },
+          {
+            title: "7. Privacidad de los Menores",
+            content: "Nuestra Aplicación no está dirigida a niños menores de 13 años. No recopilamos a sabiendas información de identificación personal de menores. Si descubrimos que un menor nos ha proporcionado datos personales sin el consentimiento verificable de sus padres o tutores, los eliminaremos de inmediato."
+          },
+          {
+            title: "8. Seguridad de los Datos",
+            content: "Implementamos medidas de seguridad técnicas y organizativas, incluyendo cifrado en tránsito (HTTPS/TLS) para todas las comunicaciones con APIs externas, redes publicitarias y servicios de compras, así como almacenamiento local aislado en el dispositivo mediante AsyncStorage."
+          },
+          {
+            title: "9. Sus Derechos",
+            content: "Dependiendo de su jurisdicción (incluyendo normativas como GDPR o CCPA), usted tiene derecho a acceder, rectificar o solicitar la eliminación de sus datos personales, así como a revocar su consentimiento para publicidad personalizada en cualquier momento."
+          },
+          {
+            title: "10. Cambios a esta Política de Privacidad",
+            content: "Podemos actualizar nuestra Política de Privacidad periódicamente para reflejar cambios en nuestras prácticas o requisitos legales. Notificaremos cualquier modificación publicando la nueva versión en esta sección y actualizando la fecha de entrada en vigor."
+          },
+          {
+            title: "11. Contacto",
+            content: "Si tiene preguntas o solicitudes sobre esta Política de Privacidad o nuestras prácticas de datos, contáctenos en: Andara Devs — Correo electrónico de soporte: andaradevs@gmail.com"
+          }
+        ],
+        terms: [
+          {
+            title: "1. Aceptación de los Términos",
+            content: "Al descargar, instalar o utilizar Sabermetrics Pro Baseball (la 'Aplicación'), usted reconoce que ha leído, entendido y aceptado estos Términos de Servicio, así como nuestra Política de Privacidad. Estos Términos constituyen un acuerdo legal vinculante entre usted y Andara Devs. Si no está de acuerdo con estos Términos, no utilice la Aplicación."
+          },
+          {
+            title: "2. Descargo de Responsabilidad sobre Afiliación y Marcas de Terceros",
+            content: "Sabermetrics Pro Baseball es un software independiente de análisis estadístico y simulación matemática. La Aplicación NO está asociada, afiliada, patrocinada, avalada ni vinculada oficialmente con ninguna liga profesional de béisbol, franquicia, club deportivo, asociación de jugadores ni organismo rector del béisbol. Todos los nombres comerciales, marcas registradas, logotipos, escudos, uniformes y derechos de imagen que pudieran asociarse al ámbito deportivo son propiedad exclusiva de sus respectivos titulares. Esta Aplicación utiliza únicamente datos estadísticos de fuentes públicas y referencias geográficas de ciudades con fines estrictamente informativos, educativos y de cálculo sabermétrico, sin intención de suplantar identidad ni infringir derechos de propiedad intelectual."
+          },
+          {
+            title: "3. Uso de la Aplicación, Publicidad y Compras Integradas",
+            content: "La Aplicación se proporciona únicamente para su uso personal y no comercial. Usted comprende y acepta que la Aplicación se financia mediante publicidad integrada y, cuando aplique, compras dentro de la aplicación gestionadas a través de la tienda oficial y RevenueCat:\n• Anuncios Banner: Se muestran de forma continua o periódica en determinadas pantallas de la interfaz.\n• Anuncios Recompensados: Usted puede optar voluntariamente por visualizar anuncios de video recompensados para acceder o desbloquear funciones específicas, tales como la ejecución de simulaciones probabilísticas o la consulta de estadísticas detalladas de jugadores.\n• Gestión de Compras y Reembolsos (RevenueCat): Las compras o desbloqueos integrados se procesan mediante el sistema de facturación de la tienda oficial y se validan a través de RevenueCat. Las solicitudes de reembolso, cancelación o gestión de compras se rigen por las políticas de la tienda correspondiente. El acceso desbloqueado mediante un anuncio recompensado es temporal, no transferible y carece de valor monetario.",
+            links: [
+              { text: "Política de Privacidad de Google AdMob", url: "https://policies.google.com/privacy" },
+              { text: "Términos de RevenueCat", url: "https://www.revenuecat.com/terms" },
+              { text: "Política de Privacidad de RevenueCat", url: "https://www.revenuecat.com/privacy" }
+            ]
+          },
+          {
+            title: "4. Naturaleza Estadística y Exención sobre Apuestas",
+            content: "Sabermetrics Pro Baseball es una herramienta estrictamente informativa, educativa y de entretenimiento basada en modelos matemáticos (como simulaciones de Montecarlo) y datos de fuentes externas. No garantizamos la exactitud, integridad o disponibilidad continua de las estadísticas o proyecciones generadas. La Aplicación NO es una casa de apuestas, no acepta ni gestiona dinero real, ni promueve el juego de azar. Usted es el único responsable de las decisiones que tome con base en los resultados del simulador. Andara Devs no asume responsabilidad alguna por pérdidas económicas, financieras o decisiones de apuestas tomadas por el usuario."
+          },
+          {
+            title: "5. Restricciones de Uso",
+            content: "Usted acepta no: (a) modificar, adaptar, traducir, realizar ingeniería inversa, descompilar o desensamblar cualquier parte de la Aplicación o su motor de simulación; (b) manipular, bloquear fraudulentamente o automatizar la visualización de anuncios banner o recompensados ni eludir los mecanismos de validación de compras/acceso; (c) utilizar la Aplicación de manera que dañe, sobrecargue o deteriore las APIs de datos estadísticos o servicios conectados; ni (d) explotar comercialmente los resultados o datos de la Aplicación sin autorización previa por escrito."
+          },
+          {
+            title: "6. Propiedad Intelectual de Andara Devs",
+            content: "El código fuente, algoritmos matemáticos propios, diseño de interfaz, gráficos originales y el nombre 'Sabermetrics Pro Baseball' son propiedad exclusiva de Andara Devs y están protegidos por las leyes de propiedad intelectual aplicables. Estos Términos le otorgan únicamente una licencia limitada, revocable, no exclusiva e intransferible para utilizar la Aplicación conforme a lo aquí establecido."
+          },
+          {
+            title: "7. Fuentes de Terceros y Enlaces Externos",
+            content: "La Aplicación depende de servicios externos de estadísticas deportivas y datos meteorológicos (Open-Meteo Weather API), así como de redes publicitarias y servicios de gestión de compras de terceros (como Google AdMob y RevenueCat). Andara Devs no controla ni garantiza la disponibilidad permanente de dichos servicios externos y no asume responsabilidad por interrupciones, retrasos o inexactitudes originadas en servicios de terceros.",
+            links: [
+              { text: "Google AdMob", url: "https://policies.google.com/privacy" },
+              { text: "RevenueCat Terms", url: "https://www.revenuecat.com/terms" },
+              { text: "RevenueCat Privacy", url: "https://www.revenuecat.com/privacy" }
+            ]
+          },
+          {
+            title: "8. Exclusión de Garantías",
+            content: "LA APLICACIÓN SE PROPORCIONA 'TAL CUAL' Y 'SEGÚN DISPONIBILIDAD', SIN GARANTÍAS DE NINGÚN TIPO, EXPRESAS O IMPLÍCITAS. ANDARA DEVS NO GARANTIZA QUE LA APLICACIÓN FUNCIONARÁ SIN INTERRUPCIONES, QUE LOS ANUNCIOS RECOMPENSADOS ESTARÁN SIEMPRE DISPONIBLES O QUE LOS CÁLCULOS ESTARÁN LIBRES DE ERRORES."
+          },
+          {
+            title: "9. Limitación de Responsabilidad",
+            content: "EN LA MÁXIMA MEDIDA PERMITIDA POR LA LEY APLICABLE, EN NINGÚN CASO ANDARA DEVS O SUS DESARROLLADORES SERÁN RESPONSABLES DE DAÑOS INDIRECTOS, INCIDENTALES, ESPECIALES, CONSECUENTES O PUNITIVOS, INCLUYENDO PÉRDIDA DE BENEFICIOS, DATOS O USO, DERIVADOS DEL ACCESO O USO DE LA APLICACIÓN."
+          },
+          {
+            title: "10. Indemnización",
+            content: "Usted acepta defender, indemnizar y mantener indemne a Andara Devs frente a cualquier reclamación, daño, obligación, pérdida o gasto que surja del uso indebido que usted haga de la Aplicación o del incumplimiento de estos Términos."
+          },
+          {
+            title: "11. Cambios en los Términos",
+            content: "Nos reservamos el derecho de modificar o actualizar estos Términos en cualquier momento. El uso continuado de la Aplicación tras la publicación de las modificaciones constituirá su aceptación de los Términos revisados."
+          },
+          {
+            title: "12. Ley Aplicable y Contacto",
+            content: "Estos Términos se regirán e interpretarán de acuerdo con las leyes vigentes del lugar de residencia de Andara Devs. Si tiene alguna consulta sobre estos Términos, contáctenos en: Andara Devs — Correo electrónico de soporte: andaradevs@gmail.com"
+          }
+        ]
+      },
+      en: {
+        lastUpdated: "Last Updated: November 22, 2026",
+        rights: "All rights reserved.",
+        tabs: { privacy: "Privacy Policy", terms: "Terms of Service" },
+        privacy: [
+          {
+            title: "1. Independent Nature & Non-Affiliation Disclaimer",
+            content: "Sabermetrics Pro Baseball is an independent sabermetric analysis and mathematical simulation tool developed by Andara Devs. This Application is not affiliated, associated, authorized, endorsed by, or in any way officially connected with any professional baseball league, franchise, team, players' association, or sports governing body. All city names, public statistics, and sports references are used strictly for informational, educational, and statistical analysis purposes."
+          },
+          {
+            title: "2. Information We Collect",
+            content: "We minimize personal data collection. We collect: (a) non-personal usage data and anonymous technical diagnostics to improve Application stability; (b) simulation history, preferences, and parameters, stored locally on your device via AsyncStorage (not transmitted to our own servers); (c) device advertising identifiers managed by our advertising partners; and (d) purchase and entitlement/unlock status information managed through RevenueCat and the corresponding app store (we do not store credit card numbers or full banking details)."
+          },
+          {
+            title: "3. Advertising, Banners, Rewarded Ads & Purchases",
+            content: "To keep the Application accessible, we integrate third-party advertising services (such as Google AdMob) that display banner ads and optional rewarded ads. You may voluntarily choose to watch rewarded video ads to unlock additional features, such as running advanced simulations or viewing detailed player statistics queries. We also use RevenueCat to manage in-app purchases or feature unlocks and validate user entitlement status. These providers may collect and use device/advertising identifiers (such as the Android Advertising ID or AAID), approximate IP address, transaction records, and interaction data to serve ads, prevent fraud, and manage enabled features. You can manage your consent preferences or reset your advertising ID in your device settings.",
+            links: [
+              { text: "Google AdMob Privacy Policy", url: "https://policies.google.com/privacy" },
+              { text: "RevenueCat Privacy Policy", url: "https://www.revenuecat.com/privacy" },
+              { text: "RevenueCat Terms", url: "https://www.revenuecat.com/terms" }
+            ]
+          },
+          {
+            title: "4. How We Use Your Information",
+            content: "We use the collected information to operate and optimize the simulation engine, enable unlocking of queries and simulations via rewarded ads or purchases, personalize the interface (language and visual theme), analyze aggregated performance metrics, and protect the security and integrity of the Application against misuse."
+          },
+          {
+            title: "5. Sharing Your Information",
+            content: "We do not sell or rent your personal information to third parties. We only share strictly necessary technical and transactional data with essential service providers (such as ad networks and purchase management services) who are obligated to protect the information under their respective privacy policies and applicable laws, or when required by law.",
+            links: [
+              { text: "Google / AdMob", url: "https://policies.google.com/privacy" },
+              { text: "RevenueCat", url: "https://www.revenuecat.com/privacy" }
+            ]
+          },
+          {
+            title: "6. External Statistical Data Sources",
+            content: "The Application queries public interfaces and external baseball statistical data services (team performance, schedules, pitcher and batter statistics) and Open-Meteo Weather API (weather conditions for simulation calculations). This data is processed solely as mathematical input and does not imply endorsement or commercial affiliation with said sources."
+          },
+          {
+            title: "7. Children's Privacy",
+            content: "Our Application is not directed to children under 13 years old. We do not knowingly collect personally identifiable information from minors. If we discover that a minor has provided us with personal data without verifiable parental consent, we will delete it immediately."
+          },
+          {
+            title: "8. Data Security",
+            content: "We implement technical and organizational security measures, including encryption in transit (HTTPS/TLS) for all communications with external APIs, ad networks, and purchase services, as well as isolated local storage on the device via AsyncStorage."
+          },
+          {
+            title: "9. Your Rights",
+            content: "Depending on your jurisdiction (including regulations such as GDPR or CCPA), you have the right to access, rectify, or request deletion of your personal data, as well as withdraw your consent for personalized advertising at any time."
+          },
+          {
+            title: "10. Changes to This Privacy Policy",
+            content: "We may update our Privacy Policy periodically to reflect changes in our practices or legal requirements. We will notify you of any modifications by posting the updated version in this section and updating the effective date."
+          },
+          {
+            title: "11. Contact",
+            content: "If you have questions or requests regarding this Privacy Policy or our data practices, please contact us at: Andara Devs — Support Email: andaradevs@gmail.com"
+          }
+        ],
+        terms: [
+          {
+            title: "1. Acceptance of Terms",
+            content: "By downloading, installing, or using Sabermetrics Pro Baseball (the 'Application'), you acknowledge that you have read, understood, and agreed to these Terms of Service, as well as our Privacy Policy. These Terms constitute a binding legal agreement between you and Andara Devs. If you do not agree to these Terms, do not use the Application."
+          },
+          {
+            title: "2. Disclaimer of Affiliation & Third-Party Trademarks",
+            content: "Sabermetrics Pro Baseball is independent statistical analysis and mathematical simulation software. The Application is NOT associated, affiliated, sponsored, endorsed by, or officially connected with any professional baseball league, franchise, sports club, players' association, or baseball governing body. All trade names, trademarks, logos, crests, uniforms, and likeness rights associated with the sports industry are the exclusive property of their respective owners. This Application relies solely on statistical data from public sources and geographic city references for strictly informational, educational, and sabermetric calculation purposes, with no intent to impersonate or infringe upon intellectual property rights."
+          },
+          {
+            title: "3. Use of the Application, Advertising & In-App Purchases",
+            content: "The Application is provided solely for your personal, non-commercial use. You understand and agree that the Application is supported through integrated advertising and, where applicable, in-app purchases managed through the official app store and RevenueCat:\n• Banner Ads: Displayed continuously or periodically on certain screens within the interface.\n• Rewarded Ads: You may voluntarily choose to watch rewarded video ads to access or unlock specific features, such as running probabilistic simulations or querying detailed player statistics.\n• Purchase & Refund Management (RevenueCat): In-app purchases or feature unlocks are processed through the official app store's billing system and validated via RevenueCat. Refund requests, cancellations, or purchase management are governed by the policies of the respective store. Access unlocked via a rewarded ad is temporary, non-transferable, and holds no monetary value.",
+            links: [
+              { text: "Google AdMob Privacy Policy", url: "https://policies.google.com/privacy" },
+              { text: "RevenueCat Terms", url: "https://www.revenuecat.com/terms" },
+              { text: "RevenueCat Privacy Policy", url: "https://www.revenuecat.com/privacy" }
+            ]
+          },
+          {
+            title: "4. Statistical Nature & Gambling Disclaimer",
+            content: "Sabermetrics Pro Baseball is strictly an informational, educational, and entertainment tool based on mathematical models (such as Monte Carlo simulations) and external data sources. We do not guarantee the accuracy, completeness, or continuous availability of generated statistics or projections. The Application is NOT a sportsbook, does not accept or manage real money, and does not promote gambling. You are solely responsible for any decisions made based on simulator outputs. Andara Devs assumes no liability for financial losses or betting decisions made by the user."
+          },
+          {
+            title: "5. Restrictions on Use",
+            content: "You agree not to: (a) modify, adapt, translate, reverse engineer, decompile, or disassemble any part of the Application or its simulation engine; (b) manipulate, fraudulently block, or automate the viewing of banner or rewarded advertisements or bypass purchase/access validation mechanisms; (c) use the Application in any manner that damages, overloads, or impairs statistical data APIs or connected services; or (d) commercially exploit the Application's outputs or data without prior written authorization."
+          },
+          {
+            title: "6. Intellectual Property of Andara Devs",
+            content: "The source code, proprietary mathematical algorithms, interface design, original graphics, and the name 'Sabermetrics Pro Baseball' are the exclusive property of Andara Devs and are protected by applicable intellectual property laws. These Terms grant you only a limited, revocable, non-exclusive, non-transferable license to use the Application in accordance with these provisions."
+          },
+          {
+            title: "7. Third-Party Sources & External Links",
+            content: "The Application relies on external sports statistics and weather data services (Open-Meteo Weather API), as well as third-party advertising networks and purchase management services (such as Google AdMob and RevenueCat). Andara Devs does not control or guarantee the permanent availability of such external sources and assumes no responsibility for interruptions, delays, or inaccuracies originating from third-party services.",
+            links: [
+              { text: "Google AdMob", url: "https://policies.google.com/privacy" },
+              { text: "RevenueCat Terms", url: "https://www.revenuecat.com/terms" },
+              { text: "RevenueCat Privacy", url: "https://www.revenuecat.com/privacy" }
+            ]
+          },
+          {
+            title: "8. Disclaimer of Warranties",
+            content: "THE APPLICATION IS PROVIDED 'AS IS' AND 'AS AVAILABLE', WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. ANDARA DEVS DOES NOT GUARANTEE THAT THE APPLICATION WILL OPERATE WITHOUT INTERRUPTIONS, THAT REWARDED ADS WILL ALWAYS BE AVAILABLE, OR THAT CALCULATIONS WILL BE ERROR-FREE."
+          },
+          {
+            title: "9. Limitation of Liability",
+            content: "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL ANDARA DEVS OR ITS DEVELOPERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR USE, ARISING OUT OF YOUR ACCESS TO OR USE OF THE APPLICATION."
+          },
+          {
+            title: "10. Indemnification",
+            content: "You agree to defend, indemnify, and hold harmless Andara Devs from and against any claims, damages, obligations, losses, or expenses arising from your misuse of the Application or your breach of these Terms."
+          },
+          {
+            title: "11. Changes to Terms",
+            content: "We reserve the right to modify or update these Terms at any time. Continued use of the Application after changes are posted constitutes your acceptance of the revised Terms."
+          },
+          {
+            title: "12. Governing Law & Contact",
+            content: "These Terms shall be governed by and construed in accordance with the laws of Andara Devs's place of residence. If you have any questions regarding these Terms, please contact us at: Andara Devs — Support Email: andaradevs@gmail.com"
+          }
+        ]
+      }
+    };
+
+    function renderSectionList(sections) {
+      return sections.map(sec => `
+        <div class="section-block">
+          <h3>${sec.title}</h3>
+          <p>${sec.content}</p>
+          ${sec.links ? `
+            <div class="external-links">
+              ${sec.links.map(link => `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.text}</a>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+
+    function renderContent() {
+      const langData = data[currentLang];
+      
+      document.getElementById('last-updated').innerText = langData.lastUpdated;
+      document.getElementById('rights-text').innerText = langData.rights;
+      document.getElementById('tab-privacy').innerText = langData.tabs.privacy;
+      document.getElementById('tab-terms').innerText = langData.tabs.terms;
+
+      document.getElementById('privacy-content').innerHTML = renderSectionList(langData.privacy);
+      document.getElementById('terms-content').innerHTML = renderSectionList(langData.terms);
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      renderContent();
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById('tab-privacy').classList.toggle('active', tab === 'privacy');
+      document.getElementById('tab-terms').classList.toggle('active', tab === 'terms');
+      
+      document.getElementById('privacy-content').classList.toggle('active', tab === 'privacy');
+      document.getElementById('terms-content').classList.toggle('active', tab === 'terms');
+    }
+
+    renderContent();
+  </script>
+</body>
+</html>
