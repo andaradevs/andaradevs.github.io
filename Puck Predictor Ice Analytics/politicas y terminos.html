@@ -1,1 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puck Predictor: Ice Analytics - Legal &amp; Privacy</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #f8fafc;
+      --muted-color: #94a3b8;
+      --accent-color: #0284c7;
+      --accent-hover: #0369a1;
+      --border-color: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .title-group h1 {
+      font-size: 1.8rem;
+      color: var(--text-color);
+    }
+
+    .title-group p {
+      color: var(--muted-color);
+      font-size: 0.9rem;
+    }
+
+    .lang-switcher button {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .lang-switcher button.active, .lang-switcher button:hover {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--muted-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+    }
+
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    .section-block {
+      margin-bottom: 20px;
+    }
+
+    .section-block h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .section-block p {
+      color: var(--muted-color);
+      font-size: 0.95rem;
+      text-align: justify;
+    }
+
+    .notice-block {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      background-color: rgba(15, 23, 42, 0.55);
+      border: 1px solid var(--border-color);
+      color: var(--muted-color);
+      font-size: 0.9rem;
+    }
+
+    .external-links {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .external-links a {
+      color: var(--accent-color);
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+
+    .external-links a:hover {
+      color: var(--accent-hover);
+    }
+
+    .footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="title-group">
+        <h1 id="app-title">Puck Predictor: Ice Analytics</h1>
+        <p id="last-updated">Last updated: November 23, 2026</p>
+      </div>
+
+      <div class="lang-switcher">
+        <button id="btn-es" onclick="setLanguage('es')">ES</button>
+        <button id="btn-en" class="active" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button id="tab-privacy" class="tab-btn active" onclick="switchTab('privacy')">Privacy policy</button>
+      <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Terms and conditions</button>
+    </div>
+
+    <!-- PRIVACY POLICY CONTENT -->
+    <div id="privacy-content" class="content-section active"></div>
+
+    <!-- TERMS AND CONDITIONS CONTENT -->
+    <div id="terms-content" class="content-section"></div>
+
+    <div class="footer">
+      <p>© 2026 AndaraDevs. <span id="rights-text">All rights reserved.</span></p>
+    </div>
+  </div>
+
+  <script>
+    // Inicializado directamente en inglés
+    let currentLang = 'en';
+    let currentTab = 'privacy';
+
+    const data = {
+      es: {
+        lastUpdated: "Última actualización: 23 de noviembre de 2026",
+        rights: "Todos los derechos reservados.",
+        tabs: { privacy: "Política de privacidad", terms: "Términos y condiciones" },
+        privacy: {
+          notice: "Esta política se aplica en la medida permitida por la ley. No limita derechos obligatorios de consumidores o de privacidad.",
+          sections: [
+            {
+              title: "1. Independencia y alcance",
+              content: "Puck Predictor: Ice Analytics es operada por AndaraDevs y ofrece análisis estadístico y simulaciones locales de hockey sobre hielo. Es independiente y no está afiliada, asociada, autorizada, respaldada ni conectada oficialmente con ninguna liga profesional de hockey sobre hielo, asociación deportiva, equipo, franquicia, entidad gubernamental u organización deportiva. La aplicación utiliza ciudades, regiones, estadísticas públicas y gráficos genéricos con fines informativos, educativos y recreativos; no redistribuye logotipos oficiales de equipos."
+            },
+            {
+              title: "2. Información que tratamos",
+              content: "La aplicación trata las selecciones de equipos, fechas, parámetros de simulación y estadísticas públicas necesarias para generar escenarios. También puede guardar el idioma y tema elegidos, datos públicos en caché, reportes de simulación y el progreso para acceder a funciones mediante anuncios recompensados. Las funciones principales de estadísticas y simulación no te piden ingresar tu nombre, teléfono ni ubicación precisa."
+            },
+            {
+              title: "3. Almacenamiento local y conservación",
+              content: "Las preferencias, los datos en caché, el progreso de anuncios recompensados y los reportes se almacenan localmente en tu dispositivo. Los reportes permanecen hasta que los elimines, borres el almacenamiento de la aplicación o la desinstales. Los datos en caché pueden reemplazarse al actualizarse. Los registros locales no se envían junto con las consultas de estadísticas deportivas públicas."
+            },
+            {
+              title: "4. Fuentes estadísticas públicas",
+              content: "La aplicación consulta calendarios, posiciones, estadísticas de equipos y portería, y resultados publicados de hockey sobre hielo para mostrar datos y calcular simulaciones. Esas solicitudes pueden comunicar tu dirección IP, la fecha o temporada solicitada y datos técnicos de la conexión a la fuente pública correspondiente. Estas funciones no solicitan tu ubicación precisa. También puedes abrir enlaces de referencia en un navegador o compartir un reporte mediante la función de compartir de tu dispositivo; la información que elijas compartir se trata conforme a las condiciones de ese servicio y de quien la reciba. AndaraDevs no controla las fuentes externas; sus datos pueden cambiar, estar incompletos o dejar de estar disponibles."
+            },
+            {
+              title: "5. Publicidad",
+              content: "La aplicación nativa puede solicitar anuncios de banner y videos recompensados opcionales. Los servicios publicitarios pueden tratar un identificador publicitario, dirección IP, información del dispositivo o de la aplicación, diagnósticos e interacciones con anuncios para mostrarlos, medirlos y protegerlos, según sus propias políticas de privacidad, la configuración de tu plataforma y los requisitos de consentimiento aplicables. El progreso de anuncios recompensados se almacena localmente.",
+              links: [
+                { text: "Política de privacidad de Google (incluye AdMob)", url: "https://policies.google.com/privacy" },
+                { text: "Cómo usa Google los datos de aplicaciones de terceros", url: "https://policies.google.com/technologies/partner-sites" }
+              ]
+            },
+            {
+              title: "6. Compras dentro de la aplicación",
+              content: "Si hay planes de pago o acceso Pro disponibles, las compras se gestionan mediante la tienda de aplicaciones y los servicios de administración de suscripciones correspondientes. Esos servicios pueden tratar un identificador de compra, el producto, el estado del acceso, datos de la transacción e información técnica para completar o restaurar el acceso. AndaraDevs no recibe ni almacena los datos completos de tarjetas de pago; también se aplican las políticas de privacidad de los proveedores correspondientes.",
+              links: [
+                { text: "Política de privacidad de RevenueCat", url: "https://www.revenuecat.com/privacy/" }
+              ]
+            },
+            {
+              title: "7. Privacidad de menores",
+              content: "La aplicación no está dirigida a menores de 13 años y AndaraDevs no recopila conscientemente información personal directamente de menores. Si consideras que un menor proporcionó información personal, contáctanos para revisar la solicitud."
+            },
+            {
+              title: "8. Seguridad y tus opciones",
+              content: "Se aplican medidas razonables para proteger la información que almacena la aplicación, pero ningún método de almacenamiento o comunicación puede garantizar seguridad absoluta. Puedes cambiar el idioma y el tema en Ajustes, eliminar reportes desde Historial y borrar otros datos locales desde la configuración de tu dispositivo o desinstalando la aplicación. Cuando la ley aplicable te otorgue derechos adicionales de privacidad, puedes contactar a AndaraDevs para ejercerlos."
+            },
+            {
+              title: "9. Cambios en esta política",
+              content: "Esta política puede actualizarse si cambian la aplicación, sus prácticas de datos o los requisitos aplicables. La fecha indicada arriba identifica la versión más reciente incluida en la aplicación."
+            },
+            {
+              title: "10. Contacto",
+              content: "Consultas o solicitudes de privacidad: AndaraDevs — andaradevs@gmail.com."
+            }
+          ]
+        },
+        terms: {
+          notice: "Nada de lo dispuesto en estos términos limita derechos o protecciones de consumidores que no puedan renunciarse conforme a la ley aplicable.",
+          sections: [
+            {
+              title: "1. Responsable y aceptación",
+              content: "Puck Predictor: Ice Analytics es operada por AndaraDevs. Al descargar, instalar o utilizar la aplicación, aceptas estos términos y la Política de privacidad. Si no estás de acuerdo, no utilices la aplicación."
+            },
+            {
+              title: "2. Independencia y alcance",
+              content: "Puck Predictor: Ice Analytics es una aplicación independiente de análisis estadístico y simulación Monte Carlo local de hockey sobre hielo. No está afiliada, asociada, autorizada, respaldada ni conectada oficialmente con ninguna liga profesional de hockey sobre hielo, asociación deportiva, equipo, franquicia, entidad gubernamental u organización deportiva. Las ciudades, regiones y estadísticas se usan solo con fines informativos, educativos y recreativos. La aplicación usa elementos gráficos genéricos y no redistribuye logotipos oficiales de equipos."
+            },
+            {
+              title: "3. Uso permitido",
+              content: "Puedes utilizar la aplicación con fines personales, educativos y recreativos, de conformidad con estos términos y la legislación aplicable. No debes interferir con la aplicación ni con sus fuentes estadísticas públicas, intentar obtener acceso no autorizado ni utilizar la aplicación de forma ilícita."
+            },
+            {
+              title: "4. Simulaciones y aviso sobre apuestas",
+              content: "Las probabilidades, los marcadores y otros resultados son estimaciones generadas mediante simulaciones estocásticas con datos disponibles y supuestos del modelo. No son resultados garantizados, pronósticos ciertos ni asesoramiento financiero. La aplicación es informativa y educativa: no acepta apuestas, no administra apuestas con dinero real ni fomenta los juegos de azar. Eres responsable de las decisiones que tomes usando la información mostrada."
+            },
+            {
+              title: "5. Datos estadísticos públicos",
+              content: "La aplicación consulta calendarios, posiciones, estadísticas y resultados publicados de hockey sobre hielo disponibles públicamente. Los datos pueden ser inexactos, incompletos, tardíos, modificados o no estar disponibles. No se garantiza su exactitud, integridad ni disponibilidad continua."
+            },
+            {
+              title: "6. Publicidad y anuncios recompensados",
+              content: "La aplicación nativa puede mostrar anuncios de banner y videos recompensados opcionales mediante servicios publicitarios. En la experiencia gratuita, después de cada grupo de tres simulaciones puede ofrecerse un anuncio recompensado para desbloquear otras tres. Si no se obtiene la recompensa o el anuncio no está disponible, las simulaciones adicionales permanecen bloqueadas hasta que haya otra forma de acceso. El contenido y la disponibilidad de los anuncios pueden variar; los servicios publicitarios pueden tratar datos técnicos y publicitarios conforme a sus propias políticas.",
+              links: [
+                { text: "Política de privacidad de Google (incluye AdMob)", url: "https://policies.google.com/privacy" },
+                { text: "Cómo usa Google los datos de aplicaciones de terceros", url: "https://policies.google.com/technologies/partner-sites" }
+              ]
+            },
+            {
+              title: "7. Compras dentro de la aplicación",
+              content: "Los planes o funciones de pago opcionales, incluido el acceso Pro, se ofrecen en la aplicación cuando están disponibles y se procesan mediante la tienda de aplicaciones y los servicios de gestión de suscripciones correspondientes. Los precios, renovaciones, cancelaciones y reembolsos se rigen por la información mostrada al comprar y por las condiciones de la tienda correspondiente. AndaraDevs no recibe ni almacena los datos completos de las tarjetas de pago.",
+              links: [
+                { text: "Política de privacidad de RevenueCat", url: "https://www.revenuecat.com/privacy/" }
+              ]
+            },
+            {
+              title: "8. Propiedad intelectual",
+              content: "El software, diseño y materiales originales de la aplicación pertenecen a AndaraDevs o a sus respectivos titulares y están protegidos por la legislación aplicable. Los nombres, marcas, estadísticas y demás contenidos de terceros siguen perteneciendo a sus respectivos titulares; su uso informativo no implica afiliación ni propiedad."
+            },
+            {
+              title: "9. Exclusión de garantías",
+              content: "En la medida permitida por la ley, la aplicación se ofrece según disponibilidad y sin garantizar un funcionamiento continuo, libre de errores o con acceso ininterrumpido a datos externos. Debes evaluar la información de forma independiente antes de basarte en ella."
+            },
+            {
+              title: "10. Limitación de responsabilidad",
+              content: "En la medida permitida por la legislación aplicable, AndaraDevs no será responsable por daños indirectos o consecuentes, interrupciones del servicio, datos externos no disponibles o inexactos, ni decisiones basadas únicamente en resultados de simulación. Estos términos no excluyen responsabilidades que legalmente no puedan excluirse."
+            },
+            {
+              title: "11. Cambios y legislación aplicable",
+              content: "AndaraDevs puede actualizar estos términos o modificar, suspender o retirar funciones de la aplicación. La versión vigente estará disponible en la aplicación. Estos términos se sujetan a la legislación aplicable y no limitan las protecciones obligatorias para consumidores en tu lugar de residencia."
+            },
+            {
+              title: "12. Contacto",
+              content: "Consultas sobre estos términos o privacidad: AndaraDevs — andaradevs@gmail.com."
+            }
+          ]
+        }
+      },
+      en: {
+        lastUpdated: "Last updated: November 23, 2026",
+        rights: "All rights reserved.",
+        tabs: { privacy: "Privacy policy", terms: "Terms and conditions" },
+        privacy: {
+          notice: "This policy applies to the extent permitted by law. It does not limit mandatory consumer or privacy rights.",
+          sections: [
+            {
+              title: "1. Independence and scope",
+              content: "Puck Predictor: Ice Analytics is operated by AndaraDevs and provides statistical analysis and local ice hockey simulations. It is independent and is not affiliated with, associated with, authorized by, endorsed by, or officially connected to any professional ice hockey league, sports association, team, franchise, government entity, or sporting organization. The app uses cities, regions, public statistics, and generic graphics for informational, educational, and recreational purposes; it does not redistribute official team logos."
+            },
+            {
+              title: "2. Information we process",
+              content: "The app processes the selected teams, dates, simulation settings, and public statistics needed to produce scenarios. It may also store your language and theme preferences, cached public data, saved simulation reports, and progress for rewarded-ad access. The core statistics and simulation features do not ask you to enter your name, phone number, or precise location."
+            },
+            {
+              title: "3. Local storage and retention",
+              content: "Preferences, cached data, rewarded-ad progress, and saved reports are stored locally on your device. Reports remain until you delete them, clear app storage, or uninstall the app. Cached data may be replaced when refreshed. Local records are not sent with requests for public sports statistics."
+            },
+            {
+              title: "4. Public statistical sources",
+              content: "The app requests publicly available ice hockey schedules, standings, team and goaltending statistics, and published results to display data and calculate simulations. Those requests may disclose your IP address, the requested date or season, and technical request information to the relevant public source. The app does not request precise location for these features. You may also open reference links in a browser or share a report using your device's share service; information you choose to share is handled under that service's and recipient's terms. External sources are outside AndaraDevs' control and may change, be incomplete, or become unavailable."
+            },
+            {
+              title: "5. Advertising",
+              content: "The native app may request banner ads and optional rewarded videos. Advertising services may process an advertising identifier, IP address, device or app information, diagnostics, and ad interactions to deliver, measure, and protect advertising, subject to their own privacy policies, your platform settings, and applicable consent requirements. Rewarded-ad progress is stored locally.",
+              links: [
+                { text: "Google Privacy Policy (including AdMob)", url: "https://policies.google.com/privacy" },
+                { text: "How Google uses data from third-party apps", url: "https://policies.google.com/technologies/partner-sites" }
+              ]
+            },
+            {
+              title: "6. In-app purchases",
+              content: "If paid plans or Pro access are available, purchases are handled by the relevant app store and subscription-management services. Those services may process a purchase identifier, product, entitlement status, transaction details, and technical information to complete or restore access. AndaraDevs does not receive or store full payment-card details; the applicable provider's privacy terms also apply.",
+              links: [
+                { text: "RevenueCat Privacy Policy", url: "https://www.revenuecat.com/privacy/" }
+              ]
+            },
+            {
+              title: "7. Children's privacy",
+              content: "The app is not directed to children under 13, and AndaraDevs does not knowingly collect personal information directly from children. If you believe a child has provided personal information, contact us so we can review the request."
+            },
+            {
+              title: "8. Security and your choices",
+              content: "Reasonable measures are used to protect information stored by the app, but no storage or communication method can guarantee absolute security. You can change your language and theme in Settings, delete saved reports from History, and clear other local data through your device settings or by uninstalling the app. Where applicable law grants additional privacy rights, you may contact AndaraDevs to exercise them."
+            },
+            {
+              title: "9. Changes to this policy",
+              content: "This policy may be updated when the app, its data practices, or applicable requirements change. The updated date above identifies the latest version included in the app."
+            },
+            {
+              title: "10. Contact",
+              content: "Privacy questions or requests: AndaraDevs — andaradevs@gmail.com."
+            }
+          ]
+        },
+        terms: {
+          notice: "Nothing in these terms limits consumer rights or protections that cannot be waived under applicable law.",
+          sections: [
+            {
+              title: "1. Operator and acceptance",
+              content: "Puck Predictor: Ice Analytics is operated by AndaraDevs. By downloading, installing, or using the app, you agree to these terms and the Privacy Policy. If you do not agree, do not use the app."
+            },
+            {
+              title: "2. Independence and scope",
+              content: "Puck Predictor: Ice Analytics is an independent statistical analysis and local Monte Carlo simulation app for ice hockey. It is not affiliated with, associated with, authorized by, endorsed by, or officially connected to any professional ice hockey league, sports association, team, franchise, government entity, or sporting organization. Cities, regions, and statistics are used only for informational, educational, and recreational purposes. The app uses generic graphics and does not redistribute official team logos."
+            },
+            {
+              title: "3. Permitted use",
+              content: "You may use the app for personal, educational, and recreational purposes in accordance with these terms and applicable law. You must not interfere with the app or its public statistical sources, attempt unauthorized access, or use the app unlawfully."
+            },
+            {
+              title: "4. Simulations and betting disclaimer",
+              content: "Probabilities, scores, and other outputs are estimates generated by stochastic simulations from available data and model assumptions. They are not guaranteed outcomes, forecasts of certainty, or financial advice. The app is informational and educational; it does not accept bets, manage real-money wagers, or encourage gambling. You are responsible for decisions made using the displayed information."
+            },
+            {
+              title: "5. Public statistical data",
+              content: "The app requests publicly available ice hockey schedules, standings, statistics, and published results. Data may be inaccurate, incomplete, delayed, changed, or unavailable. The app does not guarantee its accuracy, completeness, or continuous availability."
+            },
+            {
+              title: "6. Advertising and rewarded ads",
+              content: "The native app may display banner ads and optional rewarded video ads through advertising services. In the free experience, after a group of three simulations, a rewarded ad may be offered to unlock three more simulations. If the reward is not earned or the ad is unavailable, the additional simulations remain locked until access is otherwise available. Ad content and availability may vary; advertising services may process technical and advertising data under their own policies.",
+              links: [
+                { text: "Google Privacy Policy (including AdMob)", url: "https://policies.google.com/privacy" },
+                { text: "How Google uses data from third-party apps", url: "https://policies.google.com/technologies/partner-sites" }
+              ]
+            },
+            {
+              title: "7. In-app purchases",
+              content: "Optional paid plans or features, including Pro access, are presented in the app when available and processed through the applicable app store and subscription-management services. Prices, renewal terms, cancellation, and refunds are governed by the information shown at purchase and the relevant store terms. AndaraDevs does not receive or store full payment-card details.",
+              links: [
+                { text: "RevenueCat Privacy Policy", url: "https://www.revenuecat.com/privacy/" }
+              ]
+            },
+            {
+              title: "8. Intellectual property",
+              content: "The app's original software, design, and materials are owned by AndaraDevs or their respective rights holders and are protected by applicable law. Third-party names, marks, statistics, and other content remain the property of their respective owners; their informational use does not imply affiliation or ownership."
+            },
+            {
+              title: "9. Disclaimer of warranties",
+              content: "To the extent permitted by law, the app is provided as available and without guarantees that it will operate continuously, without errors, or with uninterrupted access to external data. You should independently assess information before relying on it."
+            },
+            {
+              title: "10. Limitation of liability",
+              content: "To the extent permitted by applicable law, AndaraDevs is not liable for indirect or consequential damages, service interruptions, unavailable or inaccurate external data, or decisions made solely from simulation results. These terms do not exclude liability that cannot legally be excluded."
+            },
+            {
+              title: "11. Changes and applicable law",
+              content: "AndaraDevs may update these terms or modify, suspend, or discontinue app features. The latest version will be made available in the app. These terms are subject to applicable law and do not limit mandatory consumer protections in your place of residence."
+            },
+            {
+              title: "12. Contact",
+              content: "Questions about these terms or privacy: AndaraDevs — andaradevs@gmail.com."
+            }
+          ]
+        }
+      }
+    };
+
+    function renderSectionList(docData) {
+      const sectionsHtml = docData.sections.map(sec => `
+        <div class="section-block">
+          <h3>${sec.title}</h3>
+          <p>${sec.content}</p>
+          ${sec.links ? `
+            <div class="external-links">
+              ${sec.links.map(link => `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.text}</a>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+
+      const noticeHtml = docData.notice ? `
+        <div class="notice-block">
+          <p>${docData.notice}</p>
+        </div>
+      ` : '';
+
+      return sectionsHtml + noticeHtml;
+    }
+
+    function renderContent() {
+      const langData = data[currentLang];
+
+      document.documentElement.lang = currentLang;
+      document.getElementById('last-updated').innerText = langData.lastUpdated;
+      document.getElementById('rights-text').innerText = langData.rights;
+      document.getElementById('tab-privacy').innerText = langData.tabs.privacy;
+      document.getElementById('tab-terms').innerText = langData.tabs.terms;
+
+      document.getElementById('privacy-content').innerHTML = renderSectionList(langData.privacy);
+      document.getElementById('terms-content').innerHTML = renderSectionList(langData.terms);
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      renderContent();
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById('tab-privacy').classList.toggle('active', tab === 'privacy');
+      document.getElementById('tab-terms').classList.toggle('active', tab === 'terms');
+
+      document.getElementById('privacy-content').classList.toggle('active', tab === 'privacy');
+      document.getElementById('terms-content').classList.toggle('active', tab === 'terms');
+    }
+
+    // Ejecutar renderizado inicial en inglés al cargar la página
+    renderContent();
+  </script>
+</body>
+</html>
 
